@@ -1,0 +1,30 @@
+#navbar{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    .navbar{    
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        width: 70%;
+    }
+    .navbar_onglet{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: setColor(gris,dark);
+        border-radius: 0.2em;
+        margin: 2% 3%;
+        width:20%;
+        height: 4em;
+    };
+    .navbar_onglet_titre{
+        text-decoration: none;
+        color: setColor(blanc,light);
+    };
+    .navbar_dropdown{
+        position: absolute;
+    }
+}
