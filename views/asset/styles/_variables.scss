@@ -1,0 +1,22 @@
+$colors:(
+    blanc: (
+        base:#e9e7dc,
+        light:#fffcee,
+        dark:#c6c4bd,
+    ),
+    gris: (
+        base:#404040,
+        light:#b5b5b5,
+        dark:#717171,
+    ),
+    rouge: (
+        base: #8C2A14,
+        light:#b33d22,
+        dark:#591b0d,
+    ),
+);
+
+@function setColor($color, $tone:base) {
+    @return map-get(map-get($colors, $color), $tone);
+};
+

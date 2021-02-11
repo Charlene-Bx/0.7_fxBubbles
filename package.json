@@ -4,7 +4,8 @@
   "description": "e-learning site for fx bubbles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./views/asset/styles/:./views/asset/styles/"
   },
   "author": "",
   "license": "ISC",
