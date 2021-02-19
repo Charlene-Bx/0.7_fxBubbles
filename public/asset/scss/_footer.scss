@@ -1,0 +1,15 @@
+#footer{
+
+    font-size: 0.8em;
+    padding: 1% 0%;
+    position:absolute;
+    background-color: setColor(noir,dark);
+    bottom:0%;
+    width:100%;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+        padding: 0% 20%;
+    }
+}

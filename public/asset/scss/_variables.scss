@@ -1,0 +1,51 @@
+$colors:(
+    noir: (
+        base:#19151d,
+        light:#211B26,
+        dark:#141315,
+    ),
+    orange: (
+        base:#BF5B45,
+        light:#cb6f5a,
+        dark:#944a39,
+    ),
+    blanc: (
+        base: #ffffff,
+        light:#d5bdb3,
+        dark:#a99086,
+    ),
+    bleu:(
+        base:#143D73,
+        light: #164480,
+        dark:#0F2F59,
+    )
+);
+
+@function setColor($color, $tone:base) {
+    @return map-get(map-get($colors, $color), $tone);
+};
+
+$fonts:(
+    opensans: 'Open Sans',
+    playfair: 'Playfair Display'
+);
+
+@function setFont($name){
+    @if($name == opensans){
+       @return map-get($fonts, $name),sans-serif; 
+    }@else{
+        @return map-get($fonts, $name),serif; 
+    }; 
+};
+
+$images:(
+    logo: './images/logo.svg',
+    chucky:'./images/Chucky.jpg',
+    frankenstein:'./images/Frankenstein.jpg',
+    moule: './images/moule.jpeg',
+    protheses: './images/protheses.jpg'
+);
+
+@function setImage($name){
+    @return map-get($images, $name)
+}

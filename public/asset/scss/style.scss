@@ -1,0 +1,27 @@
+// @import 'nomdemonpartial';
+@import './variables';
+@import './navbar';
+@import './searchbar';
+@import './footer';
+@import './homePage';
+
+body{
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    background: setColor(noir);
+    background: radial-gradient(circle, setColor(noir,light) 0%, setColor(noir) 100%);
+    color: setColor(blanc,light);
+    font-size: 13pt;
+    font-family: setFont(opensans);
+    box-sizing: border-box;
+};
+
+ul{
+    list-style: none;
+    padding: 0;
+};
+
+a{
+    color:setColor(orange,dark);
+}
