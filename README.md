@@ -8,15 +8,12 @@ back-end: nodeJS / MongoDB
 
 ### For developement:
 
-``` $touch .env ``` 
-=> crée un fichier .env à la racine
+1. ``` $touch .env ``` 
 
-``` $echo "APP_HOST=localhost APP_PORT=<port> APP_SECRET=<string>" > .env ``` 
-=> initialise les données necessaire à la création du serveur node
+2. ``` $echo "APP_HOST=localhost APP_PORT=<port> APP_SECRET=<string>" > .env ``` 
 
-``` $npm run start ```
-=> lance le serveur node sur le port definit
+3. ``` $npm run start ```
 
-``` $npm run sass ```   
-=> compile les fichiers scss en css
+4. ``` $npm run sass ```   
+
 
