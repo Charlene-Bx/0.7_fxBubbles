@@ -4,7 +4,7 @@
   "description": "e-learning site for fx bubbles",
   "main": "index.js",
   "scripts": {
-    "start": "node ./controllers/app.js",
+    "start": "nodemon ./controllers/app.js",
     "sass": "sass --watch ./public/asset/scss/:./public/asset/"
   },
   "author": "",
