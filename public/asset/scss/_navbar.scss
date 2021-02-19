@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: transparent;
+    background-color: #caaea336;
     border: 5px solid setColor(noir,light);
     margin: 0% 1%;
     padding: 0% 1%;
@@ -55,6 +55,7 @@
     justify-content: center;
 
     .navbar_onglet{
+        background-color: transparent;
         border:none;
         width: calc(5em + 5px);
         height: calc(3.2em + 5px);

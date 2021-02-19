@@ -19,48 +19,27 @@ exports.router =(()=>{
             });                    
         });
 
-    // // Contact ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/contact')                        
-    //     .get(contact.loadPage)
-    //     .post(contact.sendMessage);
+    // Training ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    router.route('/training')                        
+        .get((req,res)=>{res.render('./components/training')})
+
+    router.route('/tutorials')                        
+        .get((req,res)=>{res.render('./components/tutorials')})
     
-    // // About -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/about')
-    //     .get((req,res)=>{res.render('about')});
-    
-    // // Galery -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/gallery')
-    //     .get((req,res)=>{res.render('gallery')});
+    router.route('/agenda')                        
+        .get((req,res)=>{res.render('./components/agenda')})
 
-    // // Signin -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/register')
-    //     .get(user.loadPage_reg)
-    //     .post(user.register);
+    router.route('/infos')                        
+        .get((req,res)=>{res.render('./components/infos')})
 
-    // // Login -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/login')
-    // .get(user.loadPage_log)
-    // .post(user.login);
+    router.route('/account/:id')                        
+        .get((req,res)=>{res.render('./components/account')})
 
-    // router.route('/myAccount')
-    // .get(user.loadPage_acc)
+    router.route('/acount/sigin')                        
+        .get((req,res)=>{res.render('./components/signin')})
 
-    // // Shop -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // router.route('/shop')
-    // .get(shop.loadPage_main)
-    // // .post(user.login);
-
-    // router.route('shop/shop-detail')
-    // .get(shop.loadPage_details)
-
-    // router.route('/shop/cart')
-    // .get(shop.loadPage_cart)
-
-    // router.route('/shop/checkout')
-    // .get(shop.loadPage_checkout)
-
-    // router.route('/shop/wishlist')
-    // .get(shop.loadPage_wishlist)
+    router.route('/acount/sigup')                        
+        .get((req,res)=>{res.render('./components/signup')})
 
     return router
 })();
