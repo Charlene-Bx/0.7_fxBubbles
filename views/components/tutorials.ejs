@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./asset/styles/tutoriel.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="tutoriel.css">
     <title>Tutoriels</title>
 </head>
 <body>
-    <!--include navbar-->
+        <!-- navbar -->
+        <%- include('../partials/navbar.ejs') %>
 
 
     <!-- pop-up video player -->
     <div class="tutoriel__player" id="player" style="display: none;">
-        <iframe id="videoPlayer" class="tutoriel__video" src="./asset/videos/tutoriel__sample.mp4"></iframe>
+        <iframe id="videoPlayer" class="tutoriel__video" src="videos/tutoriel__sample.mp4"></iframe>
     </div>
     <div class="tutoriel__tileMenu">
         <div class="tutoriel__tile" id="tile">
