@@ -1,0 +1,32 @@
+#cursor{
+    width: 40px;
+    height: 40px;
+    background-image: setCursor();
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+    position: fixed;
+    top:0;
+    left: 0;
+    // animation: changeSize 0.5s infinite;
+
+    &.text{
+        background-image: setCursor(txt);
+    }
+    &.fat{
+        background-image: setCursor(fat);
+    }
+}
+
+@keyframes changeSize{
+    0%{
+        width: 40px;
+        height: 40px;
+        display: initial;
+    }
+    100%{
+        width: 4px;
+        height: 4px;
+        display: none;
+    }
+}

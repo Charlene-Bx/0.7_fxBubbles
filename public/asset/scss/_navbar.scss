@@ -14,6 +14,7 @@
     justify-content: center;
 }
 .navbar_onglet{
+    z-index: 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,6 +26,10 @@
     padding: 0% 1%;
     width:5em;
     height: 3.2em;
+
+    &:hover{
+        background-color: #cb6f5a6e;
+    }
 };
 .navbar_onglet_titre{
     text-decoration: none;
@@ -34,19 +39,21 @@
 };
 
 .navbar_logo{
+
     position:relative;
     bottom:40px;
     width: 30vh;
     height: 30vh;
-    background-image: url(setImage(logo));
+    background-image: setImage(logo);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 #account{
+    z-index: 4;
     width:calc(5em + 10px);
     height: calc(3.2em + 10px);
-    background-color: setColor(orange);
+    background-color: rgba(setColor(orange),.7);
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -55,10 +62,11 @@
     justify-content: center;
 
     .navbar_onglet{
+
         background-color: transparent;
         border:none;
-        width: calc(5em + 5px);
-        height: calc(3.2em + 5px);
+        width: calc(5em + 10px);
+        height: calc(3.2em + 10px);
     }
 
     .navbar_onglet_titre{
@@ -69,7 +77,9 @@
 
     &:hover{
         width: initial;
-        height: initial;
+        height: min-content;
+        display: initial;
+
         .navbar_dropdown{
             opacity: 100;
             li{

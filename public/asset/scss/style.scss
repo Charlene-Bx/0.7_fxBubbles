@@ -1,5 +1,6 @@
 // @import 'nomdemonpartial';
 @import './variables';
+@import './cursor';
 @import './navbar';
 @import './searchbar';
 @import './footer';
@@ -24,4 +25,6 @@ ul{
 
 a{
     color:setColor(orange,dark);
+    cursor: none;
 }
+

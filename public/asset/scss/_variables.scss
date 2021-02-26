@@ -47,5 +47,17 @@ $images:(
 );
 
 @function setImage($name){
-    @return map-get($images, $name)
+    @return url(map-get($images, $name))
+};
+
+$cursors:( 
+    base:'./images/light_cursor.svg',
+    fat:'./images/fat_cursor.svg',
+    txt:'./images/text_cursor.svg',
+);
+
+@function setCursor($type:base){
+    @return url(map-get($cursors , $type))
 }
+
+
