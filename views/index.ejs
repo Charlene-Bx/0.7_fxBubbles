@@ -14,7 +14,7 @@
         <!-- navbar -->
         <%- include('./partials/navbar.ejs') %>
         <div class="slide_navigation" id="header_slide">
-            <span class="ico_slide" style="background-color: #cb6f5a"></span><span class="ico_slide"></span><span class="ico_slide"></span>
+            <span class="ico_slide pointer" style="background-color: #cb6f5a"></span><span class="ico_slide pointer"></span><span class="ico_slide pointer"></span>
         </div>
         
     </header>
@@ -23,5 +23,12 @@
         <%- include('./partials/searchbar.ejs') %>
         <!-- footer -->
         <%- include('./partials/footer.ejs') %>
+        <!-- scripts -->
+        <script src="./js/cursors.js"></script>
+
+        <noscript>
+            const doc = document.getElementsByTagName('html');
+            doc[0].style.cursor='auto';
+        </noscript>
 </body>
 </html>

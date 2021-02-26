@@ -1,3 +1,33 @@
+#cursor {
+  width: 40px;
+  height: 40px;
+  background-image: url("./images/light_cursor.svg");
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#cursor.text {
+  background-image: url("./images/text_cursor.svg");
+}
+#cursor.fat {
+  background-image: url("./images/fat_cursor.svg");
+}
+
+@keyframes changeSize {
+  0% {
+    width: 40px;
+    height: 40px;
+    display: initial;
+  }
+  100% {
+    width: 4px;
+    height: 4px;
+    display: none;
+  }
+}
 #navbar {
   display: flex;
   flex-direction: row;
@@ -15,6 +45,7 @@
 }
 
 .navbar_onglet {
+  z-index: 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +57,9 @@
   padding: 0% 1%;
   width: 5em;
   height: 3.2em;
+}
+.navbar_onglet:hover {
+  background-color: #cb6f5a6e;
 }
 
 .navbar_onglet_titre {
@@ -46,9 +80,10 @@
 }
 
 #account {
+  z-index: 4;
   width: calc(5em + 10px);
   height: calc(3.2em + 10px);
-  background-color: #BF5B45;
+  background-color: rgba(191, 91, 69, 0.7);
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -59,8 +94,8 @@
 #account .navbar_onglet {
   background-color: transparent;
   border: none;
-  width: calc(5em + 5px);
-  height: calc(3.2em + 5px);
+  width: calc(5em + 10px);
+  height: calc(3.2em + 10px);
 }
 #account .navbar_onglet_titre {
   text-decoration: none;
@@ -69,7 +104,8 @@
 }
 #account:hover {
   width: initial;
-  height: initial;
+  height: min-content;
+  display: initial;
 }
 #account:hover .navbar_dropdown {
   opacity: 100;
@@ -126,7 +162,7 @@ header {
   height: 70vh;
   background-image: url("./images/Chucky.jpg");
   background-size: cover;
-  background-position-y: center;
+  background-position-y: 20%;
   position: relative;
 }
 
@@ -138,6 +174,7 @@ header {
   bottom: 0;
 }
 .slide_navigation .ico_slide {
+  z-index: 4;
   display: block;
   width: 1em;
   height: 1em;
@@ -165,6 +202,7 @@ ul {
 
 a {
   color: #944a39;
+  cursor: none;
 }
 
 /*# sourceMappingURL=style.css.map */
