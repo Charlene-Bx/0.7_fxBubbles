@@ -40,6 +40,10 @@ exports.router =(()=>{
 
     router.route('/acount/sigup')                        
         .get((req,res)=>{res.render('./pages/signup')})
+    
+    router.route('/admin')                        
+        .get((req,res)=>{res.render('./pages/admin')})
+    
 
     return router
 })();
