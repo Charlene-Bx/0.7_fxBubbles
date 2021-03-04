@@ -13,7 +13,7 @@ const fat= 'fat';
 
 //selectioner les elements declancheur du changement d'etat du cursor
 const links= document.querySelectorAll('a');
-const btns= document.querySelectorAll('.pointer');
+const btns= document.querySelectorAll('.--pointer');
 const input= document.querySelectorAll('input.text');;
 
 // recuperer les données du curseur original, et les retransmet a notre curseur

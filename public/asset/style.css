@@ -1,4 +1,5 @@
 #cursor {
+  z-index: 3;
   width: 40px;
   height: 40px;
   background-image: url("./images/light_cursor.svg");
@@ -28,48 +29,104 @@
     display: none;
   }
 }
-#navbar {
+@keyframes slide_opacity {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-top: 6rem;
+  height: 15vh;
 }
-
-#navigation {
+.nav__list {
   display: flex;
   flex-direction: row;
   list-style: none;
   width: 100%;
-  margin: 3% 1%;
+  margin: 0;
   padding: 0;
   justify-content: center;
 }
-
-.navbar_onglet {
+.nav__items {
   z-index: 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #caaea336;
-  border: 5px solid #211B26;
   margin: 0% 1%;
   padding: 0% 1%;
   width: 5em;
   height: 3.2em;
+  background-color: #caaea336;
+  border: 5px solid #211B26;
 }
-.navbar_onglet:hover {
+.nav__items:hover {
   background-color: #cb6f5a6e;
 }
-
-.navbar_onglet_titre {
+.nav__items.--dropdown {
+  position: absolute;
+  right: 0;
+  border: none;
+  background-color: rgba(191, 91, 69, 0.7);
+  width: calc(5em + 10px);
+  height: calc(3.2em + 10px);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0 10px;
+  justify-content: center;
+}
+.nav__items.--dropdown:hover .nav__dropdown {
+  display: flex;
+}
+.nav__links {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   color: #19151d;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.navbar_logo {
+.nav__dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: calc(3.2em + 10px);
+}
+.nav__dropdown__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(191, 91, 69, 0.7);
+  padding: 0 10px;
+  width: calc(5em + 10px);
+  height: calc(3.2em + 10px);
+}
+.nav__dropdown__links {
+  display: block;
+  width: 80%;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: #19151d;
+  border-bottom: 5px solid #211B26;
+  transition: border-bottom ease-in-out 0.3s;
+}
+.nav__dropdown__links:hover {
+  border-bottom: 5px solid #d5bdb3;
+}
+.nav__logo {
+  z-index: 3;
   position: relative;
   bottom: 40px;
   width: 30vh;
@@ -79,74 +136,53 @@
   background-repeat: no-repeat;
 }
 
-#account {
-  z-index: 4;
-  width: calc(5em + 10px);
-  height: calc(3.2em + 10px);
-  background-color: rgba(191, 91, 69, 0.7);
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 3% 1%;
-  padding: 0 10px;
-  justify-content: center;
-}
-#account .navbar_onglet {
-  background-color: transparent;
-  border: none;
-  width: calc(5em + 10px);
-  height: calc(3.2em + 10px);
-}
-#account .navbar_onglet_titre {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #19151d;
-}
-#account:hover {
-  width: initial;
-  height: min-content;
-  display: initial;
-}
-#account:hover .navbar_dropdown {
-  opacity: 100;
-}
-#account:hover .navbar_dropdown li {
-  padding: 10% 0;
-}
-#account:hover .navbar_dropdown .navbar_dropdown_titre {
-  display: initial;
-  padding: 0 5%;
-  margin: 5% 0;
-  border-bottom: 5px solid #ffffff;
-  transition: border-bottom ease-in 0.2s;
-}
-#account:hover .navbar_dropdown .navbar_dropdown_titre:hover {
-  border-bottom: 5px solid #19151d;
-}
-#account .navbar_dropdown {
-  opacity: 0;
-  transition: opacity ease-in 0.2s;
-  text-align: center;
-}
-#account .navbar_dropdown .navbar_dropdown_titre {
-  display: none;
-  color: #19151d;
-  text-decoration: none;
-}
-
-#searchBar {
+.searchBar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 20vh;
+  height: 30vh;
+  padding: 3% 30%;
+  box-sizing: border-box;
+}
+.searchBar__label {
+  font-size: 3rem;
+  width: 100%;
+  text-align: center;
+}
+.searchBar__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  position: relative;
+  margin: 6% 0%;
+}
+.searchBar__input {
+  background-color: #d5bdb3;
+  border: none;
+  height: 4rem;
+  width: 100%;
+  padding: 0 2rem;
+  -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+  box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+}
+.searchBar__button {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background-color: #944a39;
+  text-transform: uppercase;
+  padding: 0 2rem;
+  border: none;
+  font-weight: bold;
 }
 
 #footer {
   font-size: 0.8em;
   padding: 1% 0%;
-  position: absolute;
+  position: relative;
   background-color: #141315;
   bottom: 0%;
   width: 100%;
@@ -157,23 +193,43 @@
   padding: 0% 20%;
 }
 
-header {
+.slide {
   width: 100%;
   height: 70vh;
-  background-image: url("./images/Chucky.jpg");
-  background-size: cover;
-  background-position-y: 20%;
   position: relative;
 }
-
-.slide_navigation {
+.slide__show {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  display: flex;
+}
+.slide__items {
+  width: inherit;
+  height: inherit;
+  background-size: cover;
+  background-position-y: 20%;
+  position: absolute;
+  top: 0;
+}
+.slide__items.--activeSlide {
+  display: inherit;
+  opacity: 100%;
+  z-index: 2;
+  animation: slide_opacity 2s ease-in 8s 1 forwards;
+}
+.slide__items.--nextSlide {
+  z-index: 1;
+}
+.slide__nav {
   display: flex;
   width: 100%;
   justify-content: center;
   position: absolute;
   bottom: 0;
 }
-.slide_navigation .ico_slide {
+.slide__nav__ico {
   z-index: 4;
   display: block;
   width: 1em;
@@ -181,6 +237,18 @@ header {
   margin: 1%;
   border: 5px solid #211B26;
   background-color: #caaea336;
+  transition: background-color 1s ease-in;
+}
+.slide__nav__ico.--activeSpan {
+  background-color: #BF5B45;
+  transition: background-color 0.2s ease-in;
+}
+.slide__nav__ico:hover {
+  background-color: #cb6f5a6e;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -190,7 +258,7 @@ body {
   background: #19151d;
   background: radial-gradient(circle, #211B26 0%, #19151d 100%);
   color: #d5bdb3;
-  font-size: 13pt;
+  font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
 }
@@ -203,6 +271,11 @@ ul {
 a {
   color: #944a39;
   cursor: none;
+}
+
+main {
+  width: 100%;
+  min-height: calc(65vh + 6rem);
 }
 
 /*# sourceMappingURL=style.css.map */

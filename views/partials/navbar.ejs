@@ -1,31 +1,31 @@
-<div id='navbar'>
-
-    <ul id='navigation'>
-        <li class='navbar_onglet pointer'>
-            <a class='navbar_onglet_titre' href="/training">training</a>
+<nav id='navbar' class="nav">
+    <ul id='navigation' class="nav__list">
+        <li class="nav__items --pointer">
+            <a class='nav__links' href="/training">training</a>
         </li>
-        <li class='navbar_onglet pointer'>
-            <a class='navbar_onglet_titre' href="/tutorials">tutorials</a>
+        <li class="nav__items --pointer">
+            <a class='nav__links' href="/tutorials">tutorials</a>
         </li>
-        <li class='navbar_logo pointer'>
+        <li class='nav__logo --pointer'>
             <a href="#"></a>
         </li>
-        <li class='navbar_onglet pointer'>
-            <a class='navbar_onglet_titre' href="/agenda">agenda</a>
+        <li class="nav__items --pointer">
+            <a class='nav__links' href="/agenda">agenda</a>
         </li>
-        <li class='navbar_onglet pointer'>
-            <a class='navbar_onglet_titre' href="/infos">infos</a>
+        <li class="nav__items --pointer">
+            <a class='nav__links' href="/infos">infos</a>
         </li>
-    </ul>
+        <li class="nav__items --dropdown --pointer">
+            <a class='nav__links' href="/account/:id">account</a>
+            <ul class='nav__dropdown'>
+                <li class='nav__dropdown__items'>
+                    <a class='nav__dropdown__links' href="/account/signin">sign in</a>
+                </li>
+                <li class='nav__dropdown__items'>
+                    <a class='nav__dropdown__links' href="/account/signup">sign up</a>
+                </li>
+            </ul>
+        </li>
 
-    <ul id='account'>
-        <li class='navbar_onglet pointer'>
-            <a class='navbar_onglet_titre' href="/account/:id">account</a>
-        </li>
-        <ul class='navbar_dropdown'>
-            <li><a class='navbar_dropdown_titre' href="/account/signin">sign in</a></li>
-            <li><a class='navbar_dropdown_titre' href="/account/signup">sign up</a></li>
-        </ul>
     </ul>
-
-</div>
+</nav> 

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="tutoriel.css">
-    <title>Tutoriels</title>
-</head>
+<!-- head -->
+<%- include('../partials/head.ejs') %>
+<!-- end head -->
+
 <body>
-        <!-- navbar -->
-        <%- include('../partials/navbar.ejs') %>
+    <!-- navbar -->
+    <%- include('../partials/navbar.ejs') %>
+    <!-- end navbar -->
 
-
+    <main>
     <!-- pop-up video player -->
     <div class="tutoriel__player" id="player" style="display: none;">
         <iframe id="videoPlayer" class="tutoriel__video" src="videos/tutoriel__sample.mp4"></iframe>
@@ -29,7 +27,17 @@
         <div class="tutoriel__tile" id="tile">
             <p> 4 </p>
         </div>
-    </div>
+    </div> 
+
+    </main>
+
+    <!-- footer -->
+    <%- include('../partials/footer.ejs') %>
+    <!-- fin footer -->
+
+
+    <!-- scripts -->
+    <%- include('../partials/script.ejs') %>
+    <!-- fin scripts -->
 </body>
-<script src="./js/tutoriel.js"></script>
 </html>

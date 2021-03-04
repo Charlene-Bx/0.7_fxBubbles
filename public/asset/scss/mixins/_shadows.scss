@@ -1,0 +1,4 @@
+@mixin inputShadows(){
+    -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169,144,134,0.94), inset 1px 7px 17px 4px #A99086; 
+    box-shadow: inset 1px 0px 46px 20px rgba(169,144,134,0.94), inset 1px 7px 17px 4px #A99086;
+}
