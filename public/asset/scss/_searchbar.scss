@@ -29,13 +29,9 @@
         @include inputShadows();
     }
     &__button{
-        position: absolute;
-        right: 0;
+        @extend .button;
         height: 100%;
-        background-color: setColor(orange,dark);
-        text-transform: uppercase;
-        padding: 0 2rem;
-        border: none;
-        font-weight: bold;
+        right: 0;
+        position: absolute;
     }
 };

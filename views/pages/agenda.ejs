@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head.ejs') %>
+<!-- end head -->
+
+<body>
+    <!-- navbar -->
+    <%- include('../partials/navbar.ejs') %>
+    <!-- end navbar -->
+
+    <!-- agenda begin -->
+    <main>
+        <section id='agenda' class='agenda'>
+            <!-- events -->
+            <%- include('../components/agenda_event.ejs') %>
+            <!-- end events -->
+        </section>
+    </main>
+
+    <!-- footer -->
+    <%- include('../partials/footer.ejs') %>
+    <!-- fin footer -->
+
+
+    <!-- scripts -->
+    <%- include('../partials/script.ejs') %>
+    <!-- fin scripts -->
+</body>
+</html>

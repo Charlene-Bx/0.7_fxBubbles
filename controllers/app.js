@@ -15,8 +15,8 @@ app.use(session({
 
 //// CONFIGURATION EXPRESS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.static('public/asset'));                     //Chercher les feuilles de style, et tout ce qui est statique                  
-app.use(express.urlencoded({extended: true}));              //récupére les paramétres fournies dans une requête http
-// app.set('views', __dirname + '/views');                  //les "views" se trouve dans le fichier /views (pas obligé de preciser dans ce cas-ci)
+app.use(express.urlencoded({extended: true}));               //récupére les paramétres fournies dans une requête http
+// app.set('views', __dirname + '/views');                   //les "views" se trouve dans le fichier /views (pas obligé de preciser dans ce cas-ci)
 app.set('view engine','ejs');
 
 // ROUTES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

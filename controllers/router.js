@@ -21,25 +21,25 @@ exports.router =(()=>{
 
     // Training ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/training')                        
-        .get((req,res)=>{res.render('./components/training')})
+        .get((req,res)=>{res.render('./pages/training')})
 
     router.route('/tutorials')                        
-        .get((req,res)=>{res.render('./components/tutorials')})
+        .get((req,res)=>{res.render('./pages/tutorials')})
     
     router.route('/agenda')                        
-        .get((req,res)=>{res.render('./components/agenda')})
+        .get((req,res)=>{res.render('./pages/agenda')})
 
     router.route('/infos')                        
-        .get((req,res)=>{res.render('./components/infos')})
+        .get((req,res)=>{res.render('./pages/infos')})
 
     router.route('/account/:id')                        
-        .get((req,res)=>{res.render('./components/account')})
+        .get((req,res)=>{res.render('./pages/account')})
 
     router.route('/acount/sigin')                        
-        .get((req,res)=>{res.render('./components/signin')})
+        .get((req,res)=>{res.render('./pages/signin')})
 
     router.route('/acount/sigup')                        
-        .get((req,res)=>{res.render('./components/signup')})
+        .get((req,res)=>{res.render('./pages/signup')})
 
     return router
 })();
