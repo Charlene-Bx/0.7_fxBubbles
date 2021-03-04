@@ -1,10 +1,18 @@
-// @import 'nomdemonpartial';
+// utils
 @import './variables';
 @import './cursor';
+@import './animations/slides';
+@import './mixins/shadows';
+
+// pages
 @import './navbar';
 @import './searchbar';
 @import './footer';
 @import './homePage';
+
+html {
+    font-size: 62.5%; //10px
+}
 
 body{
     position: relative;
@@ -13,7 +21,7 @@ body{
     background: setColor(noir);
     background: radial-gradient(circle, setColor(noir,light) 0%, setColor(noir) 100%);
     color: setColor(blanc,light);
-    font-size: 13pt;
+    font-size: 1.6rem;
     font-family: setFont(opensans);
     box-sizing: border-box;
 };
@@ -26,5 +34,10 @@ ul{
 a{
     color:setColor(orange,dark);
     cursor: none;
+}
+
+main{
+    width: 100%;
+    min-height: calc(65vh + 6rem);
 }
 

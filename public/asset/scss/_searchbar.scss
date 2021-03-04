@@ -1,8 +1,41 @@
-#searchBar{
+.searchBar{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 20vh;
+    height: 30vh;
+    padding: 3% 30%;
+    box-sizing: border-box;
+    &__label{
+        font-size: 3rem;
+        width: 100%;
+        text-align: center;
+    }
+    &__body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        position: relative;
+        margin: 6% 0%;
+    }
+    &__input{
+        background-color: setColor(blanc,light);
+        border: none;
+        height: 4rem;
+        width: 100%;
+        padding: 0 2rem;
+        @include inputShadows();
+    }
+    &__button{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        background-color: setColor(orange,dark);
+        text-transform: uppercase;
+        padding: 0 2rem;
+        border: none;
+        font-weight: bold;
+    }
 };

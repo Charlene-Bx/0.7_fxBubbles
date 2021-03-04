@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>FX Bubbles</title>
-</head>
+<!-- head -->
+<%- include('./partials/head.ejs') %>
+<!-- end head -->
+
 <body>
-    <header>
+
+    <header class="slide" id="header_slide">
         <!-- navbar -->
         <%- include('./partials/navbar.ejs') %>
-        <div class="slide_navigation" id="header_slide">
-            <span class="ico_slide pointer" style="background-color: #cb6f5a"></span><span class="ico_slide pointer"></span><span class="ico_slide pointer"></span>
-        </div>
-        
+        <!-- end navbar -->
+
+        <!-- header slide -->
+        <main>
+            <div>
+                <h1>FX Bubbles</h1>
+                <p>the place to learn <span>professional makeup</span></p>
+                <!-- the place to learn special effects -->
+                <!-- the place to learn molding techniques -->
+            </div>
+        </main>
+        <aside class="slide__show">
+            <noscript>
+                <div class="slide__items" style='background-image: url(./images/Chucky.jpg);'></div>
+            </noscript>
+        </aside>
+
+        <div class="slide__nav">
+        </div>   
+        <!-- fin header slide -->
     </header>
      
-        <!-- searchbar -->
-        <%- include('./partials/searchbar.ejs') %>
-        <!-- footer -->
-        <%- include('./partials/footer.ejs') %>
-        <!-- scripts -->
-        <script src="./js/cursors.js"></script>
+    <!-- searchbar -->
+    <%- include('./partials/searchbar.ejs') %>
+    <!-- fin searchbar -->
 
-        <noscript>
-            const doc = document.getElementsByTagName('html');
-            doc[0].style.cursor='auto';
-        </noscript>
+    <!-- footer -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- fin footer -->
+
+    <!-- scripts -->
+    <%- include('./partials/script.ejs') %>
+    <!-- fin scripts -->
 </body>
 </html>
