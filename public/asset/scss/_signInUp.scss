@@ -1,0 +1,16 @@
+
+    .input-group{
+        @include flexCenter(column); 
+        &__label{
+
+            &.--checkbox{
+
+            }
+        }
+        &__input{
+
+        }
+        &__help{
+            display: none
+        }
+    };

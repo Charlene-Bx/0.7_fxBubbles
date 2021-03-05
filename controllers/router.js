@@ -32,18 +32,19 @@ exports.router =(()=>{
     router.route('/infos')                        
         .get((req,res)=>{res.render('./pages/infos')})
 
-    router.route('/account/:id')                        
+    router.route('/account')                        
         .get((req,res)=>{res.render('./pages/account')})
 
-    router.route('/acount/sigin')                        
+    router.route('/signin')                        
         .get((req,res)=>{res.render('./pages/signin')})
 
-    router.route('/acount/sigup')                        
+    router.route('/signup')                        
         .get((req,res)=>{res.render('./pages/signup')})
     
     router.route('/admin')                        
         .get((req,res)=>{res.render('./pages/admin')})
-    
 
+    router.route('/admin/events')                        
+        .get((req,res)=>{res.render('./pages/admin/events')})
     return router
 })();

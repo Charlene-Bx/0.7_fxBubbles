@@ -38,6 +38,19 @@ $fonts:(
     }; 
 };
 
+$font-sizes:(
+    small: 1.4rem,
+    regular: 1.6rem,
+    medium: 1.8rem,
+    large: 2.2rem,
+    xlarge: 3rem,
+    xxlarge: 15rem
+);
+
+@function setFontSize($size:regular){
+    @return map-get($font-sizes , $size )
+}
+
 $images:(
     logo: './images/logo.svg',
     chucky:'./images/Chucky.jpg',
@@ -59,5 +72,3 @@ $cursors:(
 @function setCursor($type:base){
     @return url(map-get($cursors , $type))
 }
-
-

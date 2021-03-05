@@ -1,1 +1,30 @@
-<h1>Cette page n'a pas encore été crée!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head.ejs') %>
+<!-- end head -->
+
+<body>
+    <!-- navbar -->
+    <%- include('../partials/navbar.ejs') %>
+    <!-- end navbar -->
+
+    <main>
+        <section class="signup">
+            <!-- formulaire indentification -->
+            <%- include('../components/account_signup.ejs') %>
+            <!-- fin formulaire indentification  -->
+        </section>
+        <a href="/admin" class="button">Page admin</a>
+    </main>
+
+    <!-- footer -->
+    <%- include('../partials/footer.ejs') %>
+    <!-- fin footer -->
+
+
+    <!-- scripts -->
+    <%- include('../partials/script.ejs') %>
+    <!-- fin scripts -->
+</body>
+</html>
