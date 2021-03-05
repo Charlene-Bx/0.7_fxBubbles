@@ -1,8 +1,12 @@
 .card{
     @include flexCenter();
+    margin-bottom: 5rem;
+}
     &__date{
         @include flexCenter(column);
         font-size: 3rem;
+        width: 30rem; 
+        margin-right: 1rem;
         .event-day{
             font-size: 3em;
         }
@@ -11,6 +15,7 @@
         background-color: setColor(blanc,dark);
         height: max-content;
         position: relative;
+        width: 100%;
     }
     &__aside{
         width: 100%;
