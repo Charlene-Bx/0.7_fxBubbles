@@ -1,9 +1,9 @@
 <!-- Sample -->
 <article class="card">
 
-    <time class="card__date" datetime="">
-        <span class="event-day">05</span>
-        <span class="event-month">décembre</span> 
+    <time class="card__date" datetime="<%= event.date %>">
+        <span class="event-day"> <%= event.date.getDate() %> </span>
+        <span class="event-month"><%= event.date.getMonth() %></span> 
     </time>
 
     <div class= "card__body">
@@ -14,7 +14,7 @@
         <header class="card__header">
 
             <div class="card__category --pointer">
-                <span class="event-category">category</span>
+                <span class="event-category"><%= event.category %></span>
             </div>
 
             <div class="card__title">
@@ -22,7 +22,7 @@
                     <%= event.title %>
                 </h2>
                 <h3 class="card__subtitle">
-                    hgfd
+                    <%= event.description %>
                 </h3>
             </div>
 
@@ -30,10 +30,7 @@
 
         <div class="card__subbody">
             <div class="card__copy">
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dicta, quia commodi. Ea, fugit! Labore omnis suscipit 
-                dignissimos! Expedita debitis fugiat dolorem! Dolorem 
-                sit mollitia veniam cumque aut cupiditate repellat maiores?
+                <p> <%= event.content %>
                 </p>
             </div>
             <div class="card__actions">
