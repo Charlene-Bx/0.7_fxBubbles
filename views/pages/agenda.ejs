@@ -13,7 +13,9 @@
     <main>
         <section id='agenda' class='agenda'>
             <!-- events -->
-            <%- include('../components/agenda_event.ejs') %>
+            <% events.forEach(event => { %>
+                <%- include('../components/agenda_event.ejs',{event:event}) %>
+            <%})%>
             <!-- end events -->
         </section>
     </main>
