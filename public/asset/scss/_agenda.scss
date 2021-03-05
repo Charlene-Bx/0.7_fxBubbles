@@ -1,6 +1,5 @@
 .card{
     @include flexCenter();
-    padding:2% 20%;
     &__date{
         @include flexCenter(column);
         font-size: 3rem;

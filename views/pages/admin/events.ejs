@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- head -->
-<%- include('../partials/head.ejs') %>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>FX Bubbles</title>
+</head>
 <!-- end head -->
 
 <body>
@@ -43,33 +52,53 @@
     <!-- end navbar -->
 
     <main class="imposter">
-        <header>
-        <h1> Bonjour Mike</h1> 
-        <button class="button">lancer l'introduction</button>
-        <label for="stopIntroduction" class="input-group__label --checkbox">
-            <input type="checkbox" name="stopIntroduction" id="stopIntroduction">
-            <span>J'ai compris comment ça marche!</span>
-        </label>
-        </header>
 
-        <section class="events">
-            <form action="/" method="POST">
-                <input type="date" name="date">
-                <input type="text" name="titre" placeholder="Nom de l'évenement">
+        <section class="events" id="events_add">
+            <header>
+                <h2>Ajouter un evenement:</h2>
+            </header>
+
+            <form class="input-group" action="/" method="POST">
+                <input class="input-group__input" type="date" name="dateEvent"> 
+                
+                
+                <input class="input-group__input" type="text" name="titre" placeholder="Nom de l'évenement">
             </br>
-                <input type="text" name="lieu" placeholder="Lieu">
-                <input type="text" name="description" placeholder="Description de l'évenement">
+                <input class="input-group__input" type="text" name="lieu" placeholder="Lieu">
+                <input class="input-group__input" type="text" name="description" placeholder="Description de l'évenement">
             </br>
-                <select name="catégorie">
+                <select class="input-group__select" name="catégorie">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
                 <!-- ajout du form cloudinary -->
+
+                <button class="button"> Ajouter cet evenement</button>
             </form>
+
         </section>
     
+        <section class="events" id="events_remove">
+            <header>
+                <h2>Tous les evenements:</h2>
+            </header>
+
+            <div>
+                <time>03/12</time>
+                <div>
+                    <h3>Nom de l'evenement</h3>
+                    <div>
+                        <button>...</button>
+                        <button>sup</button>
+                        <button>modif</button>
+                    </div>
+                </div>
+                
+            </div>
+
+        </section>
     </main>
 
 
