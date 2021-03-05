@@ -4,12 +4,14 @@
   "description": "e-learning site for fx bubbles",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./controllers/app.js",
+    "start": "nodemon index.js",
     "sass": "sass --watch ./public/asset/scss/:./public/asset/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^1.25.0",
+    "cloudinary-core": "^2.11.3",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",

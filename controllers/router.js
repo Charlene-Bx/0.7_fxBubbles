@@ -1,9 +1,6 @@
 // REQUIREMENT ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require('express');
-// const contact = require('./controllers/contact_ctr');
-// const footer= require('./controllers/newsletter_ctr');
-// const user= require('./controllers/user_ctr');
-// const shop= require('./controllers/shop_ctr');
+const Event =  require('../models/Event');
 
 // ROUTER ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -15,7 +12,7 @@ exports.router =(()=>{
     router.route('/')                               //Définis une route, ici, pour le chemin root
         .get((req, res) => {
             res.render('index',{                    //reponse > afficher la page index
-                user: req.session.user              //Envoies les données sous forme de cookies
+                // user: req.session.user              //Envoies les données sous forme de cookies
             });                    
         });
 
@@ -27,7 +24,12 @@ exports.router =(()=>{
         .get((req,res)=>{res.render('./pages/tutorials')})
     
     router.route('/agenda')                        
-        .get((req,res)=>{res.render('./pages/agenda')})
+        .get((req,res)=>{
+            Event.find({},(e,events)=>{
+                res.render('./pages/agenda',{events:events})
+            })
+            
+        })
 
     router.route('/infos')                        
         .get((req,res)=>{res.render('./pages/infos')})
@@ -40,11 +42,6 @@ exports.router =(()=>{
 
     router.route('/signup')                        
         .get((req,res)=>{res.render('./pages/signup')})
-    
-    router.route('/admin')                        
-        .get((req,res)=>{res.render('./pages/admin')})
 
-    router.route('/admin/events')                        
-        .get((req,res)=>{res.render('./pages/admin/events')})
     return router
 })();
