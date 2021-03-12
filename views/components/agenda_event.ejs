@@ -18,11 +18,12 @@
             </div>
 
             <div class="card__title">
-                <h2 class="card__title">
-                    <%= event.title %>
+                <h2 class="card__bigtitle">
+                    <%= event.title %> 
+                    <span class="card__dropdown --pointer"><i class="fas fa-chevron-down"></i></span>
                 </h2>
                 <h3 class="card__subtitle">
-                    <%= event.description %>
+                    <%= event.place %>
                 </h3>
             </div>
 
@@ -30,7 +31,8 @@
 
         <div class="card__subbody">
             <div class="card__copy">
-                <p> <%= event.content %>
+                <p> 
+                    <%= event.description %>
                 </p>
             </div>
             <div class="card__actions">

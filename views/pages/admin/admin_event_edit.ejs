@@ -52,58 +52,43 @@
     <!-- end navbar -->
 
     <main class="imposter">
-
-        <section class="events" id="events_add">
-            <header>
-                <h2>Ajouter un evenement:</h2>
-            </header>
-
-            <form class="input-group" action="/admin/event/new" method="POST">
-                <input class="input-group__input" type="date" name="date"> 
-                
-                
-                <input class="input-group__input" type="text" name="title" placeholder="Nom de l'évenement">
-            </br>
-                <input class="input-group__input" type="text" name="place" placeholder="Lieu">
-                <input class="input-group__input" type="text" name="content" placeholder="Description de l'évenement">
-                <input class="input-group__input" type="text" name="description" placeholder="Description de l'évenement">
-            </br>
-                <select class="input-group__select" name="category">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <!-- ajout du form cloudinary -->
-
-                <button class="button"> Ajouter cet evenement</button>
-
-
-
-                <button id="upload_widget" class="cloudinary-button">Upload files</button>
-
-            </form>
-
-        </section>
     
-        <section class="events" id="events_remove">
+        <section class="events" id="events_edit">
             <header>
                 <h2>Tous les evenements:</h2>
             </header>
 
             <% events.forEach(event => { %>
+                <% if (event._id == idEvent) { %>
                 <div>
-                    <time><%= event.date %></time>
-                    <div>
-                        <h3><%= event.title %></h3>
-                        <div>
-                            <button>...</button>
-                            <button>sup</button>
-                            <a href="/admin/edit/<%= event.id %>" class="button">EDIT</a> 
-                        </div>
-                    </div>
-                    
+                    <form class="input-group" action="admin/edit/<%= event._id %>" method="POST">
+                        <input class="input-group__input" type="date" name="date" value="<%= event.date %>"> 
+                        
+                        
+                        <input class="input-group__input" type="text" name="title" placeholder="Nom de l'évenement" value="<%= event.title %>">
+                    </br>
+                        <input class="input-group__input" type="text" name="place" placeholder="Lieu" value="<%= event.place %>">
+                        <input class="input-group__input" type="text" name="content" placeholder="Description de l'évenement" value="<%= event.content %>">
+                        <input class="input-group__input" type="text" name="description" placeholder="Description de l'évenement" value="<%= event.description %>">
+                    </br>
+                        <select class="input-group__select" name="category" selected="<%= event.category %>">
+                            <option value="1">Workshop</option>
+                            <option value="2">Festival</option>
+                            <option value="3">Conférence</option>
+                            <option value="4">Concours</option>
+                        </select>
+                        <!-- ajout du form cloudinary -->
+        
+                        <button class="button"> Modifier cet evenement</button>
+                        <a href="/" class="cancel">Cancel</a>
+        
+        
+        
+                        <button id="upload_widget" class="cloudinary-button">Upload files</button>
+        
+                    </form>
                 </div>
+                <% } %>
             <% }) %>
             <div>
                 <time>03/12</time>
@@ -120,5 +105,8 @@
 
         </section>
     </main>
+    <script src="/lodash/lodash.js" type="text/javascript"></script>
+    <script src="/cloudinary-core/cloudinary-core.js" type="text/javascript"></script>
+    <script src="../js/cloudinary.js"></script>
 </body>
 </html>

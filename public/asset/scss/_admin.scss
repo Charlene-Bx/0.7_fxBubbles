@@ -1,0 +1,135 @@
+.container{
+    @include flex(row,space-between,flex-start);
+    padding: 20px 250px;
+}
+.form{
+    @include flex(column);
+    border-right: 3px solid setColor(orange);
+    padding-right: 200px;
+    box-sizing: border-box;
+    position: relative;
+    width: 60%;
+    &__header{
+        width: max-content;
+        border-bottom: 3px solid setColor(orange);
+    }
+    &__title{
+        color: setColor(blanc,light);
+    }
+    &__body{
+        margin: 70px 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    &__input{
+        font-size: 1.6rem;
+        background-color: setColor(blanc,light);
+        border: none;
+        height: 4rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        @include inputShadows();
+        margin: 2px 2px;
+        &__group{
+            @include flex(row); 
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+        &.--textaera{
+            padding-top: 15px;
+            height: 10rem;
+        }
+        &.--date{
+            text-align: center;
+        }
+        &.--select{
+            text-align: center;
+        }
+    }
+    &__button{
+        @extend .button;
+        margin: 2px 0 2px 2px;
+        &.--upload{
+            width: 100%;
+            background-color: setColor(orange,light);
+        }
+        &.--submit{
+            height: 7rem;
+            font-size: 1.7rem;
+            margin-top: 15px;
+            position: absolute;
+            right: 200px;
+        }
+        &.--edit{
+            height: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.stack{
+    width: 80%;
+
+    &__header{
+        width: max-content;
+        border-bottom: 3px solid setColor(orange);
+        margin-left: 70px;
+        margin-bottom: 70px;
+    }
+    &__title{
+        color: setColor(blanc,light);
+    }
+}
+
+#events_list{
+    .card{
+        @include flex(row,initial,center);
+        height: 15rem;
+        margin-bottom: 10px;
+        width: 100%;
+        position: relative;
+       &__date{
+            @include flex(row,center,center);
+            height: 15rem;
+            width: 20rem;
+            margin:0;
+            background-color: setColor(bleu,light);
+            box-sizing: border-box;
+       }
+       &__body{
+            height: 15rem;
+            box-sizing: border-box;
+            border-top: 1px  solid setColor(orange,light);
+            border-right: 1px solid setColor(orange,light);
+            border-bottom: 1px  solid setColor(orange,light);
+       }
+       &__title{
+           position:initial;
+           background-color: setColor(noir,light);
+           width: max-content;
+            padding: 1rem 1.5rem;
+            margin-left: 20px;
+       } 
+       &__action{
+            @include flex(column);
+            width: max-content;
+            position: absolute;
+            right: 0;
+            bottom: 7%;
+       } 
+       &__subbody{
+            visibility: hidden;
+            background-color: setColor(blanc,light);
+            color: setColor(noir,light);
+            height: max-content;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 0.2rem 5rem 5rem 5rem;
+            box-sizing: border-box;
+       }
+    }
+}

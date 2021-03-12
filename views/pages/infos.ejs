@@ -11,15 +11,77 @@
 
     <main>
 
+        <!-- info slide -->
+        <article>
+            <div class="imposter">
+                <div class="imposter__item">
+                    <h2>A place to learn professional makeup</h2>
+                    <p>the place to learn <span>professional makeup</span></p>
+                </div>
+            </div>
+            <aside class="slide__show">
+                <div class="slide__items" style='background-image: url(./images/Chucky.jpg);'></div>
+                <noscript>
+                    <div class="slide__items" style='background-image: url(./images/Chucky.jpg);'></div>
+                </noscript>
+            </aside>
+        </article>
+
+        <!-- end info slide -->
+
+        <!-- info formateur -->
+        <article class="sidebar">
+            <aside class="sidebar__aside">
+                <div class="sidebar__image"></div>
+            </aside>
+            <div class="sidebar__body">
+                <h2 class="sidebar__title">Le formateur:</h2>
+                <div class="sidebar__content">
+                    <p class="sidebar__text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, voluptate labore! Sequi nulla, doloremque blanditiis hic ad nam aliquam velit, fuga incidunt eum reiciendis distinctio vero amet totam, ipsam sed?
+                    </p>
+                </div>
+            </div>
+        </article>
+        <!-- end info formateur -->
+
+        <!-- contact form -->
+        <form class="form">
+            <label for="myInput" class="form__label">Label:</label>
+            <input type="text" id="myInput" class="form__input">
+            <span class="form__help">
+              This is a help text. Could be a warning, too. For different colors you
+              should use modifier classes.
+            </span>
+        </form>
+        <!-- end contact form -->
+
+        <!-- info localisation map -->
+        <article class="sidebar --reverse">
+            <aside class="sidebar__map">
+                <div id='map' style='width: 400px; height: 300px;'></div>
+            </aside>
+            <div class="sidebar__body">
+                <h2>Nous trouvez:</h2>
+                <address>
+                    Les Glaciéres de Saint-Gilles
+                    <br>18, rue de la Glaciére
+                    <br>1060 Bruxelles
+                </address>
+
+                <span>Tout au fond à droite, la porte coulissante blanche.</span>
+            </div>
+        </article>
+        <!-- end info localisation map -->
     </main>
 
     <!-- footer -->
     <%- include('../partials/footer.ejs') %>
     <!-- fin footer -->
 
-
     <!-- scripts -->
     <%- include('../partials/script.ejs') %>
     <!-- fin scripts -->
+    <script src="./asset/js/mapbox.js"></script>
 </body>
 </html>

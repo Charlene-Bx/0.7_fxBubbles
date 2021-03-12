@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>FX Bubbles</title>
+</head>
+<!-- end head -->
+
+<body>
+    <!-- navbar -->
+    <%- include('../../partials/admin/admin_navbar.ejs') %>
+    <!-- end navbar -->
+
+    <main class='container'>
+        <!-- add an event -->
+        <div class="form" id="events_add">
+
+            <header class="form__header">
+                <h2 class="form__title">Ajouter un evenement:</h2>
+            </header>
+
+            <form class="form__body" action="/admin/event/new" method="POST">
+                <input class="form__input" type="text" name="title" placeholder="Nom de l'évenement" required>
+                <input class="form__input" type="text" name="place" placeholder="Lieu" required>
+                <textarea class="form__input --textaera" type="text" rows="10" name="description" placeholder="Description de l'évenement" required></textarea>
+                <div class="form__input__group">
+                    <input class="form__input --date" type="date" name="date" required>
+                    <select class="form__input --select" name="category">
+                        <option value="workshop">Workshop</option>
+                        <option value="festival">Festival</option>
+                        <option value="conférence">Conférence</option>
+                        <option value="concours">Concours</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                    <button id="upload_widget" class="form__button --upload"><i class="fas fa-plus"></i> image</button>
+                </div>
+
+                <!-- ajout du form cloudinary -->
+                
+
+                <button class="form__button --submit"> Ajouter cet evenement </button>
+            </form>
+
+        </div>
+    
+        <div class="stack" id="events_list">
+            <header class="stack__header">
+                <h2 class="stack__tile">Tous les evenements:</h2>
+            </header>
+
+            <% if(events){events.forEach(event => { %>
+                <div class="card" id=<%= event.id %>>
+                    <time class="card__date">
+                        <span><%= event.date.getDate()%></span>/
+                        <span><%= event.date.getMonth()+1%></span>
+                    </time>
+                    <div class="card__body" >
+                        <h3 class="card__title"><%= event.title %></h3>
+                        <div class="card__action">
+                            <% display_event = false%>
+                            <button type="button" onclick="seeEvent(event.currentTarget)" class="form__button --edit"><i class="far fa-eye"></i></button>
+                            <!-- <a class="button" href="/admin/edit/<%= event.id %>"> -->
+                            <button  type="button" class="form__button --edit"><i class="far fa-edit"></i></button>
+                            <!-- <a class="button" href="/admin/edit/<%= event.id %>"> -->
+                            <button  type="button" class="form__button --edit"><i class="far fa-trash-alt"></i></button> 
+                        </div>
+                    </div>
+                    <div class="card__subbody">
+                            <%= event.description %>
+                            <%- include('./admin/admin_events.ejs') %>
+                    </div>
+                    
+                </div>
+            <% }) }else{%>
+            <div>
+                <h3>Il n'y a aucun evenements enregistrés!</h3>
+                <% }%>    
+            </div>
+
+        </div>
+    </main>
+    <!-- scripts -->
+    <%- include('../../partials/script.ejs') %>
+    <script src="../js/admin_event.js"></script>
+    <!-- fin scripts -->
+</body>
+</html>
