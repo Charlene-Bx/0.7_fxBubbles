@@ -91,6 +91,25 @@
   background-color: #cb6f5a6e;
 }
 
+.block__header {
+  padding: 2% 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.block__title {
+  color: #cb6f5a;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+.block__subtitle {
+  color: #d5bdb3;
+  border-left: 3px solid #944a39;
+  margin-left: 50px;
+  padding-left: 20px;
+}
+
 .card {
   display: flex;
   flex-direction: row;
@@ -126,7 +145,7 @@
 .card__image {
   width: 100%;
   height: 100%;
-  background-image: url("https://source.unsplash.com/random");
+  background-position: center;
 }
 .card__header {
   position: absolute;
