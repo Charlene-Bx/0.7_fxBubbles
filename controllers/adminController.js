@@ -14,7 +14,7 @@ exports.router =(()=>{
     router.route('/events')                        
         .get((req,res)=>{
             Event.find({}, (err, event) => {
-                res.render('./pages/admin/events', { events: event })
+                res.render('./pages/admin/admin_events', { events: event })
             })
 
         })

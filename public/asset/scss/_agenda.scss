@@ -1,7 +1,7 @@
 .card{
     @include flexCenter();
     margin-bottom: 5rem;
-}
+
     &__date{
         @include flexCenter(column);
         font-size: 3rem;
@@ -12,14 +12,17 @@
         }
     }
     &__body{
-        background-color: setColor(blanc,dark);
-        height: max-content;
         position: relative;
         width: 100%;
+        overflow: hidden;
+        height: 30vh;
+        transition: height 0.5s ease-in;
     }
     &__aside{
         width: 100%;
-        height: 40vh;
+        height: 30vh;
+        position: relative;
+        z-index: 1;
     }
     &__image{
         width: 100%;
@@ -28,9 +31,10 @@
     }
     &__header{
         position: absolute;
+        z-index: 2;
         top: 0;
         width: 100%;
-        height: 100%; 
+        height: 30vh; 
         padding: 0% 0% 5% 8%;
         box-sizing: border-box;
     }
@@ -48,10 +52,45 @@
             text-align: center;
         }
     };
-    &__title{}
-    &__subtitle{}
+    &__title{
+        color: setColor(blanc,light);
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        bottom: 5rem;
+    }
+    &__bigtitle{
+        background-color: setColor(bleu,light);
+        width: max-content;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        margin: 0 0 0.2rem 0;
+    }
+    &__subtitle{
+        background-color: setColor(bleu,light);
+        width: max-content;
+        padding: 0.5rem 1rem;
+        font-weight: 400;
+        margin: 0 0 0.5rem 0;
+    }
+    &__dropdown{
+        margin-left: 2rem;
+        color: setColor(bleu,dark);
+        transition: color 0.2s ease-in;
+        &:hover{
+            color: setColor(orange)
+        }
+    }
     &__subbody{
-
+        visibility: hidden;
+        background-color: setColor(blanc,light);
+        color: setColor(noir,light);
+        height: max-content;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0.2rem 5rem 5rem 5rem;
+        box-sizing: border-box;
     }
     &__copy{}
     &__actions{

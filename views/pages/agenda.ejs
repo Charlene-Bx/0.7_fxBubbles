@@ -11,6 +11,10 @@
 
     <!-- agenda begin -->
     <main>
+        <header>
+            <h2>Agenda</h2>
+            <p>What's going on in the world of makeup and special effects right now?</p>
+        </header>
         <section id='agenda' class='agenda'>
             <!-- events -->
             <% events.forEach(event => { %>
@@ -27,6 +31,7 @@
 
     <!-- scripts -->
     <%- include('../partials/script.ejs') %>
+    <script src="/js/agenda.js"></script>
     <!-- fin scripts -->
 </body>
 </html>
