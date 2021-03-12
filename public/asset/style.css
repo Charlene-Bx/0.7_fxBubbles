@@ -348,7 +348,7 @@
   color: #d5bdb3;
 }
 
-#events_list .card {
+#events_list .card, #videos_list .card {
   display: flex;
   flex-direction: row;
   align-items: initial;
@@ -358,7 +358,7 @@
   width: 100%;
   position: relative;
 }
-#events_list .card__date {
+#events_list .card__date, #videos_list .card__date {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -369,21 +369,21 @@
   background-color: #164480;
   box-sizing: border-box;
 }
-#events_list .card__body {
+#events_list .card__body, #videos_list .card__body {
   height: 15rem;
   box-sizing: border-box;
   border-top: 1px solid #cb6f5a;
   border-right: 1px solid #cb6f5a;
   border-bottom: 1px solid #cb6f5a;
 }
-#events_list .card__title {
+#events_list .card__title, #videos_list .card__title {
   position: initial;
   background-color: #211B26;
   width: max-content;
   padding: 1rem 1.5rem;
   margin-left: 20px;
 }
-#events_list .card__action {
+#events_list .card__action, #videos_list .card__action {
   display: flex;
   flex-direction: column;
   align-items: initial;
@@ -393,7 +393,7 @@
   right: 0;
   bottom: 7%;
 }
-#events_list .card__subbody {
+#events_list .card__subbody, #videos_list .card__subbody {
   visibility: hidden;
   background-color: #d5bdb3;
   color: #211B26;

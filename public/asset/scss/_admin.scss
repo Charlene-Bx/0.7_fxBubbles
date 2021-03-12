@@ -84,7 +84,7 @@
     }
 }
 
-#events_list{
+#events_list ,#videos_list{
     .card{
         @include flex(row,initial,center);
         height: 15rem;

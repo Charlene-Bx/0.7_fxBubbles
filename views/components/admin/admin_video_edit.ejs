@@ -1,0 +1,27 @@
+            <% videos.forEach(video => { %>
+                <% if (video._id == idVideo) { %>
+                <form class="form__body" action="./video/edit/<%= video._id %>" method="POST">
+
+                    <input class="form__input" type="text" name="title" placeholder="Titre de la video" value="<%= video.title %>">
+                    <input class="form__input" type="hidden" name="video" id="imageInput" value="<%= video.video %>" placeholder="">
+                    <textarea class="form__input --textaera" type="text" rows="10" name="description" placeholder="Description de la video" value="<%= video.description %>"></textarea>
+                    <div class="form__input__group">
+                        <select class="form__input --select" name="category" selected="<%= video.category %>">
+                            <option value="workshop">Workshop</option>
+                            <option value="festival">Festival</option>
+                            <option value="conférence">Conférence</option>
+                            <option value="concours">Concours</option>
+                            <option value="autres">Autres</option>
+                        </select>
+                        <div id="upload_widget" class="form__button --upload"><i class="fas fa-plus"></i> video</div>
+                    </div>
+    
+                    <!-- ajout du form cloudinary -->
+                    
+    
+                    <button class="form__button --submit"> Modifier cette <video src=""></video> </button>
+                </form>
+                <% } %>
+            <% }) %>
+
+                

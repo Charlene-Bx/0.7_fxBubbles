@@ -62,7 +62,7 @@
                         <span><%= event.date.getDate()%></span>/
                         <span><%= event.date.getMonth()+1%></span>
                     </time>
-                    <div class="card__body" >
+                    <div class="card__body" style="background-image: url('<%= event.image %>')">
                         <h3 class="card__title"><%= event.title %></h3>
                         <div class="card__action">
                             <% display_event = false%>
@@ -70,11 +70,13 @@
                             <!-- <a class="button" href="/admin/edit/<%= event.id %>"> -->
                             <button  type="button" class="form__button --edit"><i class="far fa-edit"></i></button>
                             <!-- <a class="button" href="/admin/edit/<%= event.id %>"> -->
-                            <button  type="button" class="form__button --edit"><i class="far fa-trash-alt"></i></button> 
+                            <a href="./event/remove/<%= event._id %>" class="form__button --edit"><i class="far fa-trash-alt"></i></a> 
                         </div>
                     </div>
                     <div class="card__subbody">
                             <%= event.description %>
+
+                            <%- include('../../components/admin/admin_event_edit.ejs',{idEvent: event.id})%>
                     </div>
                     
                 </div>

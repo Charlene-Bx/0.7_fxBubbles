@@ -46,7 +46,6 @@
 
                 <button class="form__button --submit"> Ajouter cette video </button>
             </form>
-
         </div>
     
         <div class="stack" id="videos_list">
@@ -60,15 +59,16 @@
                         <h3 class="card__title"><%= video.title %></h3>
                         <div class="card__action">
                             <% display_video = false%>
-                            <button type="button" onclick="seevideo(video.currentTarget)" class="form__button --edit"><i class="far fa-eye"></i></button>
+                            <button type="button" onclick="seeEvent(event.currentTarget)" class="form__button --edit"><i class="far fa-eye"></i></button>
                             <!-- <a class="button" href="/admin/edit/<%= video.id %>"> -->
                             <button  type="button" class="form__button --edit"><i class="far fa-edit"></i></button>
                             <!-- <a class="button" href="/admin/edit/<%= video.id %>"> -->
-                            <button  type="button" class="form__button --edit"><i class="far fa-trash-alt"></i></button> 
+                            <a href="./video/remove/<%= video._id %>" class="form__button --edit"><i class="far fa-trash-alt"></i></a>
                         </div>
                     </div>
                     <div class="card__subbody">
                             <%= video.description %>
+                            <%- include('../../components/admin/admin_video_edit.ejs',{idVideo: video.id})%>
                     </div>
                     
                 </div>
@@ -104,7 +104,7 @@ var myWidget = cloudinary.createUploadWidget({
     myWidget.open();
   }, false);
     </script>
-
+    <script src="../js/admin_event.js"></script>
     <!-- fin scripts -->
 </body>
 </html>
