@@ -1,6 +1,8 @@
 // REQUIREMENT ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require('express');
 const Event =  require('../models/Event');
+const Video = require('../models/Video');
+const Cours = require('../models/Cours')
 
 
 // ROUTER ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +29,8 @@ exports.router =(()=>{
             place: req.body.place,
             date: Date.parse(req.body.date),
             content: req.body.content,
-            category: req.body.category
+            category: req.body.category,
+            image: req.body.image
         })
         try{
             console.log('newEvent:', newEvent);
@@ -53,5 +56,56 @@ exports.router =(()=>{
             res.redirect('/admin')
         })
     })
+
+    router.route('/video')                        
+        .get((req,res)=>{
+            Video.find({}, (err, video) => {
+                res.render('./pages/admin/admin_video', {videos: video})
+            })
+
+        })
+        router.post('/video/new', async (req,res)=>{
+            //creer un nouveau schema d'Event
+            const newVideo= new Video({
+                title: req.body.title,
+                description: req.body.description,
+                category: req.body.category,
+                video: req.body.video
+            })
+            try{
+                console.log('newVideo:', newVideo);
+                await newVideo.save();
+                res.redirect('/admin/video');
+            }
+            catch(e){
+                console.log('e:', e);
+                res.redirect('/admin/video');
+            }
+        })
+        router.route('/cours')                        
+        .get((req,res)=>{
+            Cours.find({}, (err, cours) => {
+                res.render('./pages/admin/admin_cours', {courss: cours})
+            })
+
+        })
+        router.post('/cours/new', async (req,res)=>{
+            //creer un nouveau schema d'Event
+            const newCours= new Cours({
+                title: req.body.title,
+                description: req.body.description,
+                category: req.body.category,
+                cours: req.body.cours
+            })
+            try{
+                console.log('newCours:', newCours);
+                await newCours.save();
+                res.redirect('/admin/cours');
+            }
+            catch(e){
+                console.log('e:', e);
+                res.redirect('/admin/cours');
+            }
+        })        
     return router
 })();
