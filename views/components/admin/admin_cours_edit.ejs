@@ -1,0 +1,27 @@
+<% courss.forEach(cours => { %>
+    <% if (cours._id == idCours) { %>
+    <form class="form__body" action="./cours/edit/<%= cours._id %>" method="POST">
+
+        <input class="form__input" type="text" name="title" placeholder="Nom du cours" value="<%= cours.title %>">
+        <textarea class="form__input --textaera" type="text" rows="10" name="description" placeholder="Description du cours" value="<%= cours.description %>"></textarea>
+        <div class="form__input__group">
+            <input class="form__input --date" type="date" name="date" required>
+            <select class="form__input --select" name="category" selected="<%= cours.category %>">
+                <option value="workshop">Workshop</option>
+                <option value="festival">Festival</option>
+                <option value="conférence">Conférence</option>
+                <option value="concours">Concours</option>
+                <option value="autres">Autres</option>
+            </select>
+            <div id="upload_widget" class="form__button --upload"><i class="fas fa-plus"></i> image</div>
+        </div>
+
+        <!-- ajout du form cloudinary -->
+        
+
+        <button class="form__button --submit"> Ajouter cet evenement </button> <a href="./cours" class="form__button">Cancel</a>
+    </form>
+    <% } %>
+<% }) %>
+
+    

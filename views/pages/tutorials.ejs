@@ -10,36 +10,46 @@
     <!-- end navbar -->
 
     <main>
+        <header class='block__header'>
+            <h2 class='block__title'>Tutorials</h2>
+            <p class='block__subtitle'>
 
-        <header>
-            <h2>Tutorials</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Est mollitia omnis assumenda nemo similique aliquam non praesentium 
-                    distinctio eveniet nulla, amet, numquam veniam nam veritatis 
-                    quibusdam vel quasi? Excepturi, atque!</p>
+                Practice is the secret of quality work! And what better than a video tutorial to learn from home with a professional? So what are we going to learn today?</p>
         </header>
         
     <!-- pop-up video player -->
-        <div class="tutoriel__player" id="player" style="display: none;">
-            <iframe id="videoPlayer" class="tutoriel__video" src="videos/tutoriel__sample.mp4"></iframe>
+        <div class="player" id="player" style="display: none;">
+            <iframe id="videoPlayer" class="player__content" src="videos/tutoriel__sample.mp4"></iframe>
         </div>
-        
-        <div class="tutoriel__tileMenu">
-            <div class="tutoriel__tile" id="tile">
-                <p> 1 </p>
-            </div>
-            <div class="tutoriel__tile" id="tile">
-                <p> 2 </p>
-            </div>
-            <div class="tutoriel__tile" id="tile">
-                <p> 3 </p>
-            </div>
-            <div class="tutoriel__tile" id="tile">
-                <p> 4 </p>
-            </div>
-        </div> 
+    
+        <section class='NavTile'>
+            <div class="NavTile__group">
+                <div class="NavTile__item" id="tile_moulding" style= "background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80');">
+                    <p class="NavTile__title"> moulding </p>
+                </div>
+                <div class="NavTile__item" id="tile_lifeCasting" style= "background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80');">
+                    <p class="NavTile__title"> life casting </p>
+                </div>
+                <div class="NavTile__item" id="tile_makeUp" style= "background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80');">
+                    <p class="NavTile__title"> make-up </p>
+                </div>
+                <div class="NavTile__item" id="tile_specialEffect" style= "background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80');">
+                    <p class="NavTile__title"> special effect </p>
+                </div>
+            </div> 
+        </section>   
 
-    </main>
+        <section class='carousel'>
+            <h3 class='carousel__title'>Les vidéos les plus vues:</h3>
+            <div class='carousel__group'>
+                <div class='carousel__item'>
+                    <div class='carousel__body'></div>
+                    <div class='carousel__content'></div>
+                </div>
+            </div>
+        </section>
+
+        </main>
 
     <!-- footer -->
     <%- include('../partials/footer.ejs') %>

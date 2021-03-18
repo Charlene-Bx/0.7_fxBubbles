@@ -5,7 +5,7 @@
                     <input class="form__input" type="text" name="title" placeholder="Nom de l'évenement" value="<%= event.title %>">
                     <input class="form__input" type="text" name="place" placeholder="Lieu" value="<%= event.place %>">
                     <input class="form__input" type="hidden" name="image" id="imageInput" value="<%= event.image %>" placeholder="">
-                    <textarea class="form__input --textaera" type="text" rows="10" name="description" placeholder="Description de l'évenement" value="<%= event.description %>"></textarea>
+                    <textarea class="form__input --textaera" type="text" rows="10" name="description"> <%= event.description %> </textarea>
                     <div class="form__input__group">
                         <input class="form__input --date" type="date" name="date" required>
                         <select class="form__input --select" name="category" selected="<%= event.category %>">
@@ -21,7 +21,7 @@
                     <!-- ajout du form cloudinary -->
                     
     
-                    <button class="form__button --submit"> Ajouter cet evenement </button> <a href="./events" class="form__button">Cancel</a>
+                    <button class="form__button --submit"> Modifier cet evenement </button> <a href="./events" class="form__button">Cancel</a>
                 </form>
                 <% } %>
             <% }) %>

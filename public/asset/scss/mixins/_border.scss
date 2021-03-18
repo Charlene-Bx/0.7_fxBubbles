@@ -1,0 +1,21 @@
+@mixin border ($side:all, $color: #944a39, $padding: 20){
+    @if($side == left){
+        border-left: 3px solid $color;
+        padding-left: $padding+px;
+    }
+    @if($side == 'right'){
+        border-right: 3px solid $color;
+        padding-right: $padding+px;
+    }
+    @if($side == top){
+        border-top: 3px solid $color;
+        padding-top: $padding+px;
+    }
+    @if($side == bottom){
+        border-bottom: 3px solid $color;
+        padding-bottom: $padding+px;
+    }
+    @if($side == all){
+        border: 3px solid $color;
+    }
+}

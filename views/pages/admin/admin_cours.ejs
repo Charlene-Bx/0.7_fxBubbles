@@ -59,22 +59,23 @@
                     <div class="card__body" >
                         <h3 class="card__title"><%= cours.title %></h3>
                         <div class="card__action">
-                            <% display_cours = false%>
-                            <button type="button" onclick="seecours(cours.currentTarget)" class="form__button --edit"><i class="far fa-eye"></i></button>
+                         
+                            <button type="button" onclick="seeEvent(event.currentTarget)" class="form__button --edit"><i class="far fa-eye"></i></button>
                             <!-- <a class="button" href="/admin/edit/<%= cours.id %>"> -->
                             <button  type="button" class="form__button --edit"><i class="far fa-edit"></i></button>
                             <!-- <a class="button" href="/admin/edit/<%= cours.id %>"> -->
-                            <button  type="button" class="form__button --edit"><i class="far fa-trash-alt"></i></button> 
+                                <a href="./cours/remove/<%= cours._id %>" class="form__button --edit"><i class="far fa-trash-alt"></i></a> 
                         </div>
                     </div>
                     <div class="card__subbody">
                             <%= cours.description %>
+                            <%- include('../../components/admin/admin_cours_edit.ejs',{idCours: cours.id})%>
                     </div>
                     
                 </div>
             <% }) }else{%>
             <div>
-                <h3>Il n'y a aucune cours enregistrée!</h3>
+                <h3>Il n'y a aucun cours enregistré!</h3>
                 <% }%>    
             </div>
 
@@ -82,6 +83,7 @@
     </main>
     <!-- scripts -->
     <%- include('../../partials/script.ejs') %>
+    <script src="../js/admin_event.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
