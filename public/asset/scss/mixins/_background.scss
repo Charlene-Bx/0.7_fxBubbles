@@ -1,0 +1,5 @@
+@mixin backgroundText($color:#164480){
+    background-color: $color;
+    width: max-content;
+    padding: 0.5rem 1rem;
+}

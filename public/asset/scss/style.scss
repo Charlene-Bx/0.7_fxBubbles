@@ -4,6 +4,8 @@
 @import './animations/slides';
 @import './mixins/shadows';
 @import './mixins/align';
+@import './mixins/border';
+@import './mixins/background';
 
 // pages
 @import './homePage';
@@ -79,6 +81,9 @@ h1{
     color: setColor(orange,light);
 };
 
+span.bold{
+    font-weight: bold;
+};
 .--pointer{
     cursor: pointer;
 }
