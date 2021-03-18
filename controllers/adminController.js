@@ -18,7 +18,7 @@ exports.router =(()=>{
         .get((req,res)=>{
             Event.find({}, (err, event) => {
                 res.render('./pages/admin/admin_events', { events: event })
-            })
+            }).sort({date:1})
 
         })
     //add
@@ -60,7 +60,7 @@ exports.router =(()=>{
             })
         })
     //remove
-    router.route("event/remove/:id")
+    router.route("/event/remove/:id")
         .get((req, res) => {
             const id = req.params.id;
             Event.findByIdAndRemove(id, err => {
@@ -74,7 +74,7 @@ exports.router =(()=>{
     router.route('/video')                        
         .get((req,res)=>{
             Video.find({}, (err, video) => {
-                res.send('./pages/admin/admin_video', {videos: video})
+                res.render('./pages/admin/admin_video', {videos: video})
             })
 
         })
@@ -98,7 +98,7 @@ exports.router =(()=>{
             }
         })
     //edit
-    router.route('video/edit/:id')
+    router.route('/video/edit/:id')
         .get((req, res) => {
             const id = req.params.id;
             Video.find({}, (err, video) =>{
@@ -113,7 +113,7 @@ exports.router =(()=>{
             })
         })
     //remove
-    router.route("video/remove/:id")
+    router.route("/video/remove/:id")
         .get((req, res) => {
             const id = req.params.id;
             Event.findByIdAndRemove(id, err => {
@@ -151,7 +151,7 @@ exports.router =(()=>{
             }
         })
     //edit
-    router.route('cours/edit/:id')
+    router.route('/cours/edit/:id')
         .get((req, res) => {
             const id = req.params.id;
             Cours.find({}, (err, cours) =>{
@@ -166,7 +166,7 @@ exports.router =(()=>{
             })
         })
     //remove
-    router.route("cours/remove/:id")
+    router.route("/cours/remove/:id")
         .get((req, res) => {
             const id = req.params.id;
             Cours.findByIdAndRemove(id, err => {

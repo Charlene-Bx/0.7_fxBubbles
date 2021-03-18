@@ -21,15 +21,17 @@
         margin: 6% 0%;
     }
     &__input{
+        font-size: 1.6rem;
         background-color: setColor(blanc,light);
         border: none;
-        height: 4rem;
+        height: 4.3rem;
         width: 100%;
         padding: 0 2rem;
         @include inputShadows();
     }
     &__button{
         @extend .button;
+        font-size: 1.6rem;
         height: 100%;
         right: 0;
         position: absolute;

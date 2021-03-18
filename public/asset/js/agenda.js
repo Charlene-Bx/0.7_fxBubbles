@@ -76,10 +76,33 @@ dropdowns.forEach(card=>{
     })
 })
 
-//Changer la couleurs du tag en fonction de la categorie
+
+//Changer la couleur du tag en fonction de la categorie
+const categories= document.querySelectorAll('.event-category');
 
 const color_festival = '#E0A66F';
 const color_workshop = '#94463A';
 const colors_conference = '#046666';
 const colors_concours = '#3A946B';
 
+categories.forEach(category=>{
+    let parent= category.parentElement;
+    console.log('category:', category)
+
+    switch(category.textContent){
+        case 'festival':
+            parent.style.backgroundColor= color_festival;
+            break;
+        case 'workshop':
+            parent.style.backgroundColor= color_workshop;
+            break;
+        case 'conférence':
+            parent.style.backgroundColor= colors_conference;
+            break;
+        case 'concours':
+            parent.style.backgroundColor= colors_concours;
+            break;
+    }
+})
+
+//Modifier l'ordre d'affichage en fonction de la date

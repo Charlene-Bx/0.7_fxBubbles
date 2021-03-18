@@ -5,7 +5,7 @@
 .form{
     @include flex(column);
     border-right: 3px solid setColor(orange);
-    padding-right: 200px;
+    padding-right: 140px;
     box-sizing: border-box;
     position: relative;
     width: 60%;
@@ -67,6 +67,12 @@
             border: none;
             font-size: 1.6rem;
         }
+        &.--see{
+            height: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            font-size: 1.6rem;
+        }
     }
 }
 
@@ -105,6 +111,8 @@
             border-top: 1px  solid setColor(orange,light);
             border-right: 1px solid setColor(orange,light);
             border-bottom: 1px  solid setColor(orange,light);
+            background-size: cover;
+            background-position: center;
        }
        &__title{
            position:initial;
@@ -128,8 +136,25 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            padding: 0.2rem 5rem 5rem 5rem;
+            padding: 2rem 5rem 5rem 5rem;
             box-sizing: border-box;
+            &__see{
+                display: none;
+                &__content{
+                    background-color: rgba(setColor(blanc,dark),0.5);
+                    margin-top: 2rem;
+                    box-sizing: border-box;
+                    padding: 3%;
+                }
+            }
+            &__edit{
+                display: none;
+            }
+       }
+       &__tag{
+           @include backgroundText();
+           color:setColor(blanc,light);
+           text-transform: uppercase;
        }
     }
 }

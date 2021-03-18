@@ -146,6 +146,8 @@
   width: 100%;
   height: 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .card__header {
   position: absolute;
@@ -209,7 +211,7 @@
   padding: 0.2rem 5rem 5rem 5rem;
   box-sizing: border-box;
 }
-.tutoriel__player {
+.player {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,32 +219,54 @@
   height: 100vh;
   width: 100vw;
 }
-
-.tutoriel__video {
+.player__content {
   width: 1280px;
   height: 720px;
   border: 0px;
   align-items: center;
 }
 
-.tutoriel__tileMenu {
+.NavTile {
+  width: 100%;
+  height: max-content;
+  box-sizing: border-box;
+}
+.NavTile__group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3%;
+}
+.NavTile__item {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 90vw;
-  height: 60vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 25vh;
+  background-size: cover;
+  background-position: center;
+}
+.NavTile__title {
+  background-color: #164480;
+  width: max-content;
+  padding: 0.5rem 1rem;
+  font-size: 4rem;
+  font-weight: bolder;
+  text-transform: capitalize;
 }
 
-.tutoriel__tile {
-  width: 45%;
-  height: 40%;
-  background-color: lightgray;
-  border: 1px solid darkgray;
-  margin-top: 2%;
+.carousel__title {
+  color: #BF5B45;
+  border-left: 3px solid #BF5B45;
+  padding-left: 20px;
 }
-
+.carousel__group {
+  display: flex;
+  flex-direction: row;
+  align-items: initial;
+  justify-content: initial;
+}
 .input-group {
   display: flex;
   flex-direction: column;
@@ -267,7 +291,7 @@
   align-items: initial;
   justify-content: initial;
   border-right: 3px solid #BF5B45;
-  padding-right: 200px;
+  padding-right: 140px;
   box-sizing: border-box;
   position: relative;
   width: 60%;
@@ -334,6 +358,12 @@
   border: none;
   font-size: 1.6rem;
 }
+.form__button.--see {
+  height: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 1.6rem;
+}
 
 .stack {
   width: 80%;
@@ -375,6 +405,8 @@
   border-top: 1px solid #cb6f5a;
   border-right: 1px solid #cb6f5a;
   border-bottom: 1px solid #cb6f5a;
+  background-size: cover;
+  background-position: center;
 }
 #events_list .card__title, #videos_list .card__title {
   position: initial;
@@ -401,8 +433,27 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 0.2rem 5rem 5rem 5rem;
+  padding: 2rem 5rem 5rem 5rem;
   box-sizing: border-box;
+}
+#events_list .card__subbody__see, #videos_list .card__subbody__see {
+  display: none;
+}
+#events_list .card__subbody__see__content, #videos_list .card__subbody__see__content {
+  background-color: rgba(169, 144, 134, 0.5);
+  margin-top: 2rem;
+  box-sizing: border-box;
+  padding: 3%;
+}
+#events_list .card__subbody__edit, #videos_list .card__subbody__edit {
+  display: none;
+}
+#events_list .card__tag, #videos_list .card__tag {
+  background-color: #164480;
+  width: max-content;
+  padding: 0.5rem 1rem;
+  color: #d5bdb3;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -429,14 +480,20 @@
   align-items: center;
   position: relative;
   margin: 0% 1%;
-  padding: 0% 1%;
-  width: 5em;
+  width: 6.8em;
   height: 3.2em;
   background-color: #caaea336;
   border: 5px solid #211B26;
 }
 .nav__items:hover {
   background-color: #cb6f5a6e;
+}
+.nav__items:active {
+  background-color: #cb6f5a9b;
+}
+.nav__items.--active {
+  background-color: #cb6f5a9b;
+  border: 5px solid #2e2635;
 }
 .nav__items.--dropdown {
   position: absolute;
@@ -518,9 +575,28 @@
   bottom: 40px;
   width: 30vh;
   height: 30vh;
+}
+.nav__logo__logo {
+  z-index: 4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: url("./images/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
+}
+.nav__logo__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  mask: url("./images/logo_maskAlpha.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background-image: url("./images/logo_background.png");
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position-x: 36px;
+  background-position-y: -31px;
 }
 
 .searchBar {
@@ -547,15 +623,17 @@
   margin: 6% 0%;
 }
 .searchBar__input {
+  font-size: 1.6rem;
   background-color: #d5bdb3;
   border: none;
-  height: 4rem;
+  height: 4.3rem;
   width: 100%;
   padding: 0 2rem;
   -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
   box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
 }
 .searchBar__button {
+  font-size: 1.6rem;
   height: 100%;
   right: 0;
   position: absolute;
@@ -640,6 +718,10 @@ section {
 h1 {
   font-size: 15rem;
   color: #cb6f5a;
+}
+
+span.bold {
+  font-weight: bold;
 }
 
 .--pointer {
