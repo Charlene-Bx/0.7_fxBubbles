@@ -54,8 +54,10 @@ connectDB();
 // ROUTES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // const basic_router = require('./routers/basic_router');
 // app.use(basic_router);
-const router = require('./controllers/router').router;
-const admin = require('./controllers/adminController').router;
+const router = require('./router/route-general').router;
+const admin = require('./router/route-admin').router;
+const user = require('./router/route-user').router;
 
 app.use('/',router);            //rouge generale
+app.use('/',user);              //route user 
 app.use('/admin',admin);        //route admin
