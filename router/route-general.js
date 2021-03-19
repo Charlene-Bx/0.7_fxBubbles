@@ -35,14 +35,5 @@ exports.router =(()=>{
     router.route('/infos')                        
         .get((req,res)=>{res.render('./pages/infos',{pageActive: 'infos'})})
 
-    router.route('/account')                        
-        .get((req,res)=>{res.render('./pages/account',{pageActive: 'account'})})
-
-    router.route('/signin')                        
-        .get((req,res)=>{res.render('./pages/signin',{pageActive: 'signin'})})
-
-    router.route('/signup')                        
-        .get((req,res)=>{res.render('./pages/signup',{pageActive: 'signup'})})
-
     return router
 })();
