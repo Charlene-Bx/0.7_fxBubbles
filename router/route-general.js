@@ -2,6 +2,7 @@
 const express = require('express');
 const Event =  require('../models/Event');
 
+
 // ROUTER ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.router =(()=>{
@@ -10,10 +11,10 @@ exports.router =(()=>{
 
     // Home ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/')                               //Définis une route, ici, pour le chemin root
-        .get((req, res) => {
+        .get((req, res) => { console.log(req.session)
             res.render('index',{                    //reponse > afficher la page index
-                pageActive: 'home'
-                // user: req.session.user              //Envoies les données sous forme de cookies
+                pageActive: 'home',
+                user: req.session.user              //Envoies les données sous forme de cookies
             });                    
         });
 
