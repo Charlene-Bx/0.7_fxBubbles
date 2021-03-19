@@ -11,16 +11,19 @@ exports.router =(()=>{
 
     // Home ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/')                               //Définis une route, ici, pour le chemin root
-        .get((req, res) => { console.log(req.session)
+        .get((req, res) => {
+            console.log(req.session)
             res.render('index',{                    //reponse > afficher la page index
                 pageActive: 'home',
                 user: req.session.user              //Envoies les données sous forme de cookies
-            });                    
+            });                   
         });
 
     // Training ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/training')                        
-        .get((req,res)=>{res.render('./pages/training',{pageActive: 'training'})})
+        .get((req,res)=>{
+            console.log(req.session)
+            res.render('./pages/training',{pageActive: 'training'})})
 
     router.route('/tutorials')                        
         .get((req,res)=>{res.render('./pages/tutorials',{pageActive: 'tutorials'})})
