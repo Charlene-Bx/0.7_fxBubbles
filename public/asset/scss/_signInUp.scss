@@ -1,16 +1,15 @@
-
-    .input-group{
-        @include flexCenter(column); 
-        &__label{
-
-            &.--checkbox{
-
-            }
+.form{
+    margin-top: "20%";
+}
+.input-group{
+    @include flexCenter(column); 
+    &__label{
+        &.--checkbox{
         }
-        &__input{
-
-        }
-        &__help{
-            display: none
-        }
-    };
+    }
+    &__input{
+    }
+    &__help{
+        display: none
+    }
+};

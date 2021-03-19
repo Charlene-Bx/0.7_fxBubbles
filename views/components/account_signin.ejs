@@ -1,12 +1,13 @@
-<div class="input-group" id="signin_form">
+<section class="form" id="signin_form">
+  <form action="" method="post">
     <label for="userName" class="input-group__label">User Name:</label>
-    <input type="text" id="userName" class="input-group__input">
+    <input type="text" id="userName" name='mail' class="input-group__input">
     <span class="input-group__help">
       This is a help text. Could be a warning, too. For different colors you
       should use modifier classes.
     </span>
     <label for="userPwd" class="input-group__label">Password:</label>
-    <input type="password" id="userPwd" class="input-group__input">
+    <input type="password" id="userPwd" name='password' class="input-group__input">
     <span class="input-group__help">
       This is a help text. Could be a warning, too. For different colors you
       should use modifier classes.
@@ -15,5 +16,7 @@
         <input type="checkbox" name="remenberMe" id="remenberMe">
         <span>Remenber me</span>
     </label>
-    <button class="button"> sigin in! </button>
-</div>
+    <button type="submit" class="button"> sigin in! </button>
+  </form>
+
+</section>
