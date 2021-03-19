@@ -21,23 +21,24 @@ exports.router =(()=>{
 
     // Training ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/training')                        
-        .get((req,res)=>{
-            console.log(req.session)
+        .get((req,res)=>{res.render('./pages/training',{pageActive: 'training', user: req.session.user})})
+
             res.render('./pages/training',{pageActive: 'training'})})
 
+
     router.route('/tutorials')                        
-        .get((req,res)=>{res.render('./pages/tutorials',{pageActive: 'tutorials'})})
+        .get((req,res)=>{res.render('./pages/tutorials',{pageActive: 'tutorials', user: req.session.user})})
     
     router.route('/agenda')                        
         .get((req,res)=>{
             Event.find({},(e,events)=>{
-                res.render('./pages/agenda',{pageActive: 'agenda', events:events})
+                res.render('./pages/agenda',{pageActive: 'agenda', events:events, user: req.session.user})
             }).sort({date:1})
 
         })
 
     router.route('/infos')                        
-        .get((req,res)=>{res.render('./pages/infos',{pageActive: 'infos'})})
+        .get((req,res)=>{res.render('./pages/infos',{pageActive: 'infos', user: req.session.user})})
 
     return router
 })();

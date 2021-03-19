@@ -27,7 +27,7 @@ exports.router =(()=>{
         })
     // Signin ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/signin')                        
-        .get((req,res)=>{res.render('./pages/signin',{pageActive: 'signin'})})
+        .get((req,res)=>{res.render('./pages/signin',{pageActive: 'signin', user: req.session.user})})
         .post((req,res)=>{
             if(validator.isEmail(req.body.mail)){
                 User.find({"mail": req.body.mail})
@@ -53,7 +53,7 @@ exports.router =(()=>{
         })
     // Signup ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/signup')                        
-        .get((req,res)=>{res.render('./pages/signup',{pageActive: 'signup'})})
+        .get((req,res)=>{res.render('./pages/signup',{pageActive: 'signup', user: req.session.user})})
         .post((req,res)=>{
             if(validator.isEmail(req.body.mail)){
                 User.find({
@@ -105,5 +105,33 @@ exports.router =(()=>{
 
             
         })
+// LOGOUT
+        router.route('/logout')
+        .get((req, res) => {
+            if (req.session.user){
+                req.session.destroy(err => {
+                    if(err) {
+                        res.status(400).send('Unable to log out')
+                    } else {
+                        res.redirect('/signin')
+                    }
+                })
+            } else {
+                res.send("Vous n'êtes pas connecté")
+            }
+        })
+        // .delete((req, res) => {
+        //         if (req.session){
+        //             req.session.destroy(err => {
+        //                 if(err) {
+        //                     res.status(400).send('Unable to log out')
+        //                 } else {
+        //                     res.send('Logged out successfully')
+        //                 }
+        //             });
+        //         } else {
+        //             res.end()
+        //         }
+        //     })
     return router
 })();
