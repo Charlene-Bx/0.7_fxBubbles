@@ -10,14 +10,14 @@ exports.router =(()=>{
     var router = express.Router();                  //Instancie un nouvel objet router
 
     router.route('/')                        
-        .get((req,res)=>{res.render('./pages/admin')})
+        .get((req,res)=>{res.render('./pages/admin', {user: req.session.user})})
 
 
     // EVENT + CRUD ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     router.route('/events')                        
         .get((req,res)=>{
             Event.find({}, (err, event) => {
-                res.render('./pages/admin/admin_events', { events: event })
+                res.render('./pages/admin/admin_events', { events: event, user: req.session.user })
             }).sort({date:1})
 
         })
@@ -74,7 +74,7 @@ exports.router =(()=>{
     router.route('/video')                        
         .get((req,res)=>{
             Video.find({}, (err, video) => {
-                res.render('./pages/admin/admin_video', {videos: video})
+                res.render('./pages/admin/admin_video', {videos: video, user: req.session.user})
             })
 
         })
@@ -127,7 +127,7 @@ exports.router =(()=>{
     router.route('/cours')                        
         .get((req,res)=>{
             Cours.find({}, (err, cours) => {
-                res.render('./pages/admin/admin_cours', {courss: cours})
+                res.render('./pages/admin/admin_cours', {courss: cours, user: req.session.user})
             })
 
         })

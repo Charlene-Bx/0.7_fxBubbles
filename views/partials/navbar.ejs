@@ -53,12 +53,18 @@
         <li class="nav__items --dropdown">
             <a class='nav__links' href="/account">account</a>
             <ul class='nav__dropdown'>
-                <li class='nav__dropdown__items'>
-                    <a class='nav__dropdown__links' href="/signin">sign in</a>
-                </li>
-                <li class='nav__dropdown__items'>
-                    <a class='nav__dropdown__links' href="/signup">sign up</a>
-                </li>
+                <% if(user){ %>
+                    <li class='nav__dropdown__items'>
+                        <a class='nav__dropdown__links' href="/logout">log out</a>
+                    </li>
+                <% } else { %> 
+                    <li class='nav__dropdown__items'>
+                        <a class='nav__dropdown__links' href="/signin">sign in</a>
+                    </li>
+                    <li class='nav__dropdown__items'>
+                        <a class='nav__dropdown__links' href="/signup">sign up</a>
+                    </li>
+                <% } %>
             </ul>
         </li>
 
