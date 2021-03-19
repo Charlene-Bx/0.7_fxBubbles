@@ -6,13 +6,13 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 
 //// CREATION SESSION ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// app.set('trust proxy', 1) 
-// app.use(session({
-//   secret: process.env.APP_SECRET,
-//   resave: false,
-//   saveUninitialized: false,
-//   cookie: { secure: false }
-// }))    
+app.set('trust proxy', 1) 
+app.use(session({
+  secret: process.env.APP_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
+}))    
 
 //// CONFIGURATION EXPRESS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.static('public/asset'));                     //Chercher les feuilles de style, et tout ce qui est statique                  
