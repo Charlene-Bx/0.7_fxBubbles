@@ -267,6 +267,10 @@
   align-items: initial;
   justify-content: initial;
 }
+.form {
+  margin-top: "20%";
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
