@@ -128,17 +128,18 @@
             background-repeat: no-repeat; 
         }
         &__background{
+            @include backgroundImage(logoBackground,85%,36px,-31px);
             position: absolute;
             width: 100%;
             height: 100%;
+            
             mask: setImage(maskAlpha);
             mask-size: contain;
             mask-repeat: no-repeat;
-            background-image: setImage(logoBackground);
-            background-size: 85%;
-            background-repeat: no-repeat;
-            background-position-x: 36px;
-            background-position-y: -31px;
+            
+            -webkit-mask: setImage(maskAlpha);
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
         }
     };
 }

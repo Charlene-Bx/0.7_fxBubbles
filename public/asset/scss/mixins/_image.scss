@@ -1,0 +1,13 @@
+@mixin backgroundImage($value,$size:contain,$x:center,$y:center){
+    background-image: setImage($value);
+    background-size: $size;
+    background-repeat: no-repeat;
+    background-position-x: $x;
+    background-position-y: $y;
+
+    -webkit-background-image: setImage($value);
+    -webkit-background-size: $size;
+    -webkit-background-repeat: no-repeat;
+    -webkit-background-position-x: $x;
+    -webkit-background-position-y: $y;
+}

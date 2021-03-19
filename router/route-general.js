@@ -23,7 +23,7 @@ exports.router =(()=>{
     router.route('/training')                        
         .get((req,res)=>{res.render('./pages/training',{pageActive: 'training', user: req.session.user})})
 
-            res.render('./pages/training',{pageActive: 'training'})})
+            
 
 
     router.route('/tutorials')                        
@@ -34,7 +34,6 @@ exports.router =(()=>{
             Event.find({},(e,events)=>{
                 res.render('./pages/agenda',{pageActive: 'agenda', events:events, user: req.session.user})
             }).sort({date:1})
-
         })
 
     router.route('/infos')                        
