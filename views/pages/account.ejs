@@ -10,11 +10,14 @@
     <!-- end navbar -->
 
     <!-- agenda begin -->
+    <% if(user !== 'undefined'){ %> 
     <main>
         <a href="/admin" class="button">Page admin</a>
-        <h1>Les comptes n'ont pas encore été créés!</h1>
+        <h1>Hello <%= user%></h1>
     </main>
-
+    <% }else{ %> 
+        <h1> Tu n'es pas connecté </h1>
+    <% } %> 
     <!-- footer -->
     <%- include('../partials/footer.ejs') %>
     <!-- fin footer -->

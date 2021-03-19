@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 var validator = require('validator');
+const session = require('express-session');
 
 
 // ROUTER ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -16,7 +17,14 @@ exports.router =(()=>{
 
     // Account ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/account')                        
-        .get((req,res)=>{res.render('./pages/account',{pageActive: 'account'})})
+        .get((req,res)=>{
+            if (req.session.user === 'undefined') {
+                res.redirect('/signin')
+            } else {
+
+                res.render('./pages/account',{user: req.session.user, pageActive: 'account'})
+            }
+        })
     // Signin ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/signin')                        
         .get((req,res)=>{res.render('./pages/signin',{pageActive: 'signin'})})
@@ -25,10 +33,11 @@ exports.router =(()=>{
                 User.find({"mail": req.body.mail})
                 .then(
                     result => {
-                        bcrypt.compare(req.body.password, result[0].password, function(err, result) {
-                            if(result){
-                                console.log('mot de passe correct please in')
-                                res.redirect('/account')
+                        bcrypt.compare(req.body.password, result[0].password, function(err, isCorrect) {
+                            if(isCorrect){
+                                console.log('mot de passe correct please in', result[0])
+                                req.session.user = result[0].mail
+                                res.render('./pages/account',{user: req.session.user, pageActive: 'signin' })
                             }else{
                                 console.log('mot de passe incorrect')
                                 res.redirect('/signin')
