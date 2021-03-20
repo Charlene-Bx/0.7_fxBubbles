@@ -1,13 +1,23 @@
-@mixin backgroundImage($value,$size:contain,$x:center,$y:center){
+@mixin backgroundImage($value,$size:contain,$x:initial,$y:initial,$repeat:no-repeat){
     background-image: setImage($value);
     background-size: $size;
-    background-repeat: no-repeat;
+    background-repeat: $repeat;
     background-position-x: $x;
     background-position-y: $y;
 
     -webkit-background-image: setImage($value);
     -webkit-background-size: $size;
-    -webkit-background-repeat: no-repeat;
+    -webkit-background-repeat: $repeat;
     -webkit-background-position-x: $x;
     -webkit-background-position-y: $y;
+}
+
+@mixin maskingImage($value,$size:contain,$repeat:no-repeat){
+    mask: setImage($value);
+    mask-size: $size;
+    mask-repeat: $repeat;
+    
+    -webkit-mask: setImage($value);
+    -webkit-mask-size: $size;
+    -webkit-mask-repeat: $repeat;
 }

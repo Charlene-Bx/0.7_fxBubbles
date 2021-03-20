@@ -258,8 +258,7 @@
 
 .carousel__title {
   color: #BF5B45;
-  border-left: 3px solid #BF5B45;
-  padding-left: 20px;
+  border: #BF5B45px solid left;
 }
 .carousel__group {
   display: flex;
@@ -267,17 +266,70 @@
   align-items: initial;
   justify-content: initial;
 }
-.form {
-  margin-top: "20%";
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 15%;
 }
-
-.input-group {
+.box__title {
+  color: #cb6f5a;
+  font-size: 4rem;
+}
+.box__body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 50px;
 }
-.input-group__help {
+.box__body:last-child {
+  border-left: 3px solid #944a39;
+  padding-left: 20px;
+  margin-left: 100px;
+  padding-bottom: 33px;
+}
+.box__form {
+  background-color: rgba(191, 91, 69, 0.1);
+  padding: 50px 25px;
+  width: 100%;
+}
+.box__form__box {
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  justify-content: initial;
+  position: relative;
+  margin: 50px 0;
+}
+.box__form__box.--checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: initial;
+  justify-content: initial;
+}
+.box__form__label {
+  background-color: #211B26;
+  width: max-content;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: -20px;
+}
+.box__form__input {
+  -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+  box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+  border: 5px solid #211B26;
+  font-size: 1.6rem;
+  width: 100%;
+  padding: 0 2rem;
+  height: 5.3rem;
+  box-sizing: border-box;
+}
+.box__form__help {
   display: none;
 }
 
@@ -581,13 +633,20 @@
   height: 30vh;
 }
 .nav__logo__logo {
+  background-image: url("./images/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: initial;
+  background-position-y: initial;
+  -webkit-background-image: url("./images/logo.svg");
+  -webkit-background-size: contain;
+  -webkit-background-repeat: no-repeat;
+  -webkit-background-position-x: initial;
+  -webkit-background-position-y: initial;
   z-index: 4;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("./images/logo.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .nav__logo__background {
   background-image: url("./images/logo_background.png");
@@ -600,15 +659,15 @@
   -webkit-background-repeat: no-repeat;
   -webkit-background-position-x: 36px;
   -webkit-background-position-y: -31px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
   mask: url("./images/logo_maskAlpha.png");
   mask-size: contain;
   mask-repeat: no-repeat;
   -webkit-mask: url("./images/logo_maskAlpha.png");
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .searchBar {
@@ -698,6 +757,7 @@ main {
   min-height: 80vh;
   box-sizing: border-box;
   padding: 3%;
+  position: relative;
 }
 
 section {
@@ -712,6 +772,8 @@ section {
   padding: 1rem 2rem;
   border: none;
   font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
 }
 
 .imposter {
@@ -738,6 +800,53 @@ span.bold {
 
 .--pointer {
   cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+.checkbox:hover ~ .checkbox__replace {
+  -webkit-box-shadow: inset 1px 0px 46px 20px rgba(148, 131, 124, 0.94), inset 1px 7px 17px 4px #A99086;
+  box-shadow: inset 1px 0px 46px 20px rgba(148, 131, 124, 0.94), inset 1px 7px 17px 4px #A99086;
+}
+.checkbox:checked ~ .checkbox__replace {
+  -webkit-box-shadow: inset 1px 0px 46px 20px rgba(33, 27, 38, 0.7), inset 1px 7px 17px 4px #A99086;
+  box-shadow: inset 1px 0px 46px 20px rgba(33, 27, 38, 0.7), inset 1px 7px 17px 4px #A99086;
+}
+.checkbox:checked ~ .checkbox__replace:after {
+  display: block;
+}
+.checkbox__replace {
+  -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+  box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
+  border: 5px solid #211B26;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #d5bdb3;
+}
+.checkbox__replace:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: -8px;
+  width: 8px;
+  height: 19px;
+  border: solid #d5bdb3;
+  border-width: 0 3px 5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.checkbox__label {
+  margin-left: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

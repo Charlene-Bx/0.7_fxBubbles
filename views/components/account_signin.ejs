@@ -1,25 +1,36 @@
-<section class="form" id="signin_form">
-  <form action="" method="post">
-    <label for="userName" class="input-group__label">User Name:</label>
-    <input type="text" id="userName" name='mail' class="input-group__input">
-    <span class="input-group__help">
-      This is a help text. Could be a warning, too. For different colors you
-      should use modifier classes.
-    </span>
-    <label for="userPwd" class="input-group__label">Password:</label>
-    <input type="password" id="userPwd" name='password' class="input-group__input">
-    <span class="input-group__help">
-      This is a help text. Could be a warning, too. For different colors you
-      should use modifier classes.
-    </span>
-    <label for="remenberMe" class="input-group__label --checkbox">
-        <input type="checkbox" name="remenberMe" id="remenberMe">
-        <span>Remenber me</span>
+<section class="box__body" id="signin_form">
+
+  <form class="box__form" action="" method="post">
+
+    <label  class="box__form__box" for="userMail">
+      <span class="box__form__label">Your email:</span>
+      <input class="box__form__input" type="text" id="userMail" name='mail' required>
+      <span class="box__form__help">
+        The e-mail address with which you registered.
+      </span>
     </label>
+
+    <label  class="box__form__box" for="userPassword">
+      <span class="box__form__label">Your password:</span>
+      <input class="box__form__input" type="password" id="userPassword" name='password' required>
+      <span class="box__form__help">
+        For the moment, if you have forgotten your password, you will have to keep thinking ...
+      </span>
+    </label>
+
+    <label for="remenberMe" class="box__form__box --checkbox">
+        <input class="checkbox" type="checkbox" name="remenberMe" id="remenberMe" value='true'>
+        <span class="checkbox__replace"></span>
+        <span class="checkbox__label">
+          Remenber me
+        </span>
+        <span class="box__form__help">
+          You are a special person, and everyone remembers you. But we will do it better than them!
+        </span>
+    </label>
+
     <button type="submit" class="button"> sigin in! </button>
+
   </form>
 
-  <form action="/logout" method="GET">
-    <button type="submit"> Sign out</button>
-  </form>
 </section>

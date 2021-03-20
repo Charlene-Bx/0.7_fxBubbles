@@ -1,21 +1,22 @@
-@mixin border ($side:all, $color: #944a39, $padding: 20){
+@mixin border ($color: #944a39, $weight: 3, $side:all, $padding: 20){
     @if($side == left){
-        border-left: 3px solid $color;
+        border-left: $weight+px solid $color;
         padding-left: $padding+px;
     }
-    @if($side == 'right'){
-        border-right: 3px solid $color;
+    @if($side == right){
+        border-right: $weight+px solid $color;
         padding-right: $padding+px;
     }
     @if($side == top){
-        border-top: 3px solid $color;
+        border-top: $weight+px solid $color;
         padding-top: $padding+px;
     }
     @if($side == bottom){
-        border-bottom: 3px solid $color;
+        border-bottom: $weight+px solid $color;
         padding-bottom: $padding+px;
     }
     @if($side == all){
-        border: 3px solid $color;
-    }
+        border: $weight+px solid $color;
+    }     
+    
 }

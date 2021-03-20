@@ -49,6 +49,7 @@ main{
     min-height: 80vh;
     box-sizing: border-box;
     padding: 3%;
+    position: relative;
 }
 
 section{
@@ -62,6 +63,8 @@ section{
     padding:1rem 2rem;
     border: none;
     font-weight: bold;
+    font-size: 1.6rem;
+    cursor: pointer;
 };
 
 .imposter{
@@ -85,7 +88,60 @@ h1{
 span.bold{
     font-weight: bold;
 };
+
 .--pointer{
     cursor: pointer;
+}
+
+.checkbox{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+
+    &:hover ~ .checkbox__replace{
+        @include inputShadows(rgba(148, 131, 124, 0.94), #A99086);  
+    }
+
+    //si checkbox invisible checked noircis un peu le fond
+    &:checked ~ .checkbox__replace{
+        @include inputShadows(rgba(setColor(noir,light),.7))
+    }
+    //si checkbox invisible checked display le custom checked object
+    &:checked ~ .checkbox__replace:after{
+        display:block
+    }
+
+    &__replace{
+        @include inputShadows();
+        @include border(setColor(noir,light),5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: setColor(blanc,light);
+
+        //create the custom checked object
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 7px;
+            top: -8px;
+            width: 8px;
+            height: 19px;
+            border: solid setColor(blanc,light);
+            border-width: 0 3px 5px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+    }
+
+    &__label{
+        margin-left: 50px;
+    }
 }
 
