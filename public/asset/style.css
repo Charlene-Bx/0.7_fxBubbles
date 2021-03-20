@@ -306,6 +306,9 @@
   position: relative;
   margin: 50px 0;
 }
+.box__form__box:hover > .box__form__help {
+  display: initial;
+}
 .box__form__box.--checkbox {
   display: flex;
   flex-direction: row;
@@ -330,7 +333,18 @@
   box-sizing: border-box;
 }
 .box__form__help {
+  background-color: rgba(20, 61, 115, 0.3);
+  width: max-content;
+  padding: 0.5rem 1rem;
+  padding: 2.3rem;
   display: none;
+  width: 20rem;
+  height: max-content;
+  position: absolute;
+  right: 38rem;
+  font-size: 1.2rem;
+  color: rgba(213, 189, 179, 0.5);
+  text-align: center;
 }
 
 .container {

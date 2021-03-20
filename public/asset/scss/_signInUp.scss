@@ -26,6 +26,10 @@
             @include flex(column); 
             position:relative;
             margin: 50px 0;
+
+            &:hover > .box__form__help{
+                display: initial
+            };
             &.--checkbox{
                 @include flex(row); 
             }
@@ -45,7 +49,16 @@
             box-sizing: border-box;
         }
         &__help{
+            @include backgroundText(rgba(setColor(bleu),.3));
+            padding: 2.3rem;
             display: none;
+            width: 20rem;
+            height: max-content;
+            position: absolute;
+            right: 38rem;
+            font-size: 1.2rem;
+            color:rgba(setColor(blanc,light),.5);
+            text-align: center
         }
     };
 
