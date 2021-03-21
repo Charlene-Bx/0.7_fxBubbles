@@ -9,15 +9,30 @@
     <%- include('../partials/navbar.ejs') %>
     <!-- end navbar -->
 
-    <!-- agenda begin -->
-    <% if(user){ %> 
+    
     <main>
+    <% if(user){ %> 
+        <!-- account page -->
         <a href="/admin" class="button">Page admin</a>
-        <h1>Hello <%= user%></h1>
-    </main>
+        <h1>Hello <%= user %></h1>
+        <!-- end page -->
     <% }else{ %> 
-        <h1> Tu n'es pas connecté </h1>
+        <!-- sign in and sign up page -->
+        <h2>you are not connected</h2>
+        <p>But, nice try!</p>
+        <section class="box">
+            <!-- formulaire indentification -->
+            <%- include('../components/account_signin.ejs') %>
+            <!-- fin formulaire indentification  -->
+
+            <!-- formulaire inscription -->
+            <%- include('../components/account_signup.ejs') %>
+            <!-- fin formulaire inscription  -->
+        </section>
+        <!-- end sign in and sign up page -->
     <% } %> 
+    </main>
+
     <!-- footer -->
     <%- include('../partials/footer.ejs') %>
     <!-- fin footer -->

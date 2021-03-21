@@ -32,12 +32,25 @@
             };
             &.--checkbox{
                 @include flex(row); 
+            };
+            &.--error{
+                .box__form__label{
+                    @include backgroundText(setColor(error));
+                };
+                .box__form__input{
+                    @include border(setColor(error), 5);
+                };
+                .box__form__error{
+                    color: setColor(error);
+                    font-size: 1.2rem;
+                }
             }
         };
         &__label{
             @include backgroundText(setColor(noir,light));
             position: absolute;
             top: -20px;
+            z-index: 1;
         };
         &__input{
             @include inputShadows();
@@ -47,6 +60,10 @@
             padding: 0 2rem;
             height: 5.3rem;
             box-sizing: border-box;
+            &.--textaera{
+                height: 15rem;
+                padding: 2rem;
+            }
         }
         &__help{
             @include backgroundText(rgba(setColor(bleu),.3));

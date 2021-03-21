@@ -37,7 +37,7 @@ exports.router =(()=>{
         })
 
     router.route('/infos')                        
-        .get((req,res)=>{res.render('./pages/infos',{pageActive: 'infos', user: req.session.user})})
+        .get((req,res)=>{res.render('./pages/infos',{pageActive: 'infos', user: req.session.user, error: undefined})})
 
     return router
 })();

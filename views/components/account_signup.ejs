@@ -1,21 +1,50 @@
 <section class="box__body" id="signin_form">
-    <form class="box__form" action="" method="POST">
+    <form class="box__form" action='/signup' method="POST">
 
-        <label  class="box__form__box" for="userMail">
+
+        <% if(error[0] === 'email'){%>
+        <label  class="box__form__box --error" for="userMail">
             <span class="box__form__label">Your email:</span>
             <input class="box__form__input" type="text" id="userMail" name='mail' >
             <span class="box__form__help">
               It must be valid. You should be able to confirm your count with. 
             </span>
-        </label>
-
-        <label  class="box__form__box" for="userPassword">
-            <span class="box__form__label">Your password:</span>
-            <input class="box__form__input" type="password" id="userPassword" name='password' required>
-            <span class="box__form__help">
-                It must contain at least one number and one uppercase and be composed of minimum 7 characters, maximum 20. 
+            <span class="box__form__error">
+                <%= error[1] %>
             </span>
         </label>
+        <% }else{ %>
+            <label  class="box__form__box" for="userMail">
+                <span class="box__form__label">Your email:</span>
+                <input class="box__form__input" type="text" id="userMail" name='mail' >
+                <span class="box__form__help">
+                  It must be valid. You should be able to confirm your count with. 
+                </span>
+            </label>
+        <% }%>
+
+
+        <% if(error[0] === 'password'){%>
+            <label  class="box__form__box --error" for="userPassword">
+                <span class="box__form__label">Your password:</span>
+                <input class="box__form__input" type="password" id="userPassword" name='password' required>
+                <span class="box__form__help">
+                    It must contain at least one number and one uppercase and be composed of minimum 7 characters, maximum 20. 
+                </span>
+                <span class="box__form__error">
+                    <%= error[1] %>
+                </span>
+            </label>
+        <% }else{ %>
+            <label  class="box__form__box" for="userPassword">
+                <span class="box__form__label">Your password:</span>
+                <input class="box__form__input" type="password" id="userPassword" name='password' required>
+                <span class="box__form__help">
+                    It must contain at least one number and one uppercase and be composed of minimum 7 characters, maximum 20. 
+                </span>
+            </label>
+        <% }%>
+
 
         <label  class="box__form__box" for="confirmPassword">
             <span class="box__form__label">Confirm password:</span>

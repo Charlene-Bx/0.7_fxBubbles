@@ -2,6 +2,11 @@
     width: 100%;
     height: 70vh;
     position: relative;
+
+    &.--small{
+        height: 35vh;  
+        @include flex (column,center,center);
+    };
     &__show{
         width: inherit;
         height: inherit;

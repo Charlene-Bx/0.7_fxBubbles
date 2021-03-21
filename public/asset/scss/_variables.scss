@@ -18,6 +18,9 @@ $colors:(
         base:#143D73,
         light: #164480,
         dark:#0F2F59,
+    ),
+    error:(
+        base: #913e2b,
     )
 );
 
@@ -58,7 +61,8 @@ $images:(
     chucky:'./images/Chucky.jpg',
     frankenstein:'./images/Frankenstein.jpg',
     moule: './images/moule.jpeg',
-    protheses: './images/protheses.jpg'
+    protheses: './images/protheses.jpg',
+    mike: './images/mike2.jpg',
 );
 
 @function setImage($name){

@@ -5,133 +5,36 @@ const User =  require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-var validator = require('validator');
+const validator = require('validator');
 const session = require('express-session');
+const { json } = require('express');
+
+require('../controllers/render.js');
+require('../controllers/authentification');
 
 
 // ROUTER ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 exports.router =(()=>{
 
     var router = express.Router();                  //Instancie un nouvel objet router
 
     // Account ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/account')                        
-        .get((req,res)=>{
-            if (req.session.user === 'undefined') {
-                res.redirect('/signin')
-            } else {
+        .get((req,res)=>{ util_render(req, res, 'account', './pages/account', {error: []}) })
 
-                res.render('./pages/account',{user: req.session.user, pageActive: 'account'})
-            }
-        })
     // Signin ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/signin')                        
-        .get((req,res)=>{res.render('./pages/signin',{pageActive: 'signin', user: req.session.user})})
-        .post((req,res)=>{
-            if(validator.isEmail(req.body.mail)){
-                User.find({"mail": req.body.mail})
-                .then(
-                    result => {
-                        bcrypt.compare(req.body.password, result[0].password, function(err, isCorrect) {
-                            if(isCorrect){
-                                console.log('mot de passe correct please in', result[0])
-                                req.session.user = result[0].mail
-                                res.render('./pages/account',{user: req.session.user, pageActive: 'signin' })
-                            }else{
-                                console.log('mot de passe incorrect')
-                                res.redirect('/signin')
-                            }
-                        });                        
-                    }
-                )
-                .catch(e=>{console.log(e)})
-            }else{
-                console.log('format e-mail invalid')
-                res.redirect('/signin')
-            }
-        })
+        .get((req,res)=>{ util_render(req, res, 'signin', './pages/signin', {error: undefined}) })
+        .post((req,res)=>{ util_connect(req, res, User) })
+
     // Signup ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     router.route('/signup')                        
-        .get((req,res)=>{res.render('./pages/signup',{pageActive: 'signup', user: req.session.user})})
-        .post((req,res)=>{
-            if(validator.isEmail(req.body.mail)){
-                User.find({
-                    "mail": req.body.mail
-                })
-                .then(
-                    result => {
-                        if(result.length){
-                            res.redirect('/signin')
-                        }else{
-                            if(req.body.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)){
-                                console.log('il contient des nombres et fais plus de 7 caracteres')
-                                if(req.body.confirmPassword === req.body.password){
+        .get((req,res)=>{ util_render(req, res, 'signup', './pages/signup', {error: []}) })
+        .post((req,res)=>{ util_createAccount(req, res, User) })
 
-                                    //crypter le mdp
-                                    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                                        let user = new User ({
-                                            mail:req.body.mail,
-                                            password:hash,
-                                            newsLetter:req.body.newsLetter
-                                        })
-        
-                                    user.save()
-                                    .then(result=>{console.log('user is in the data biiiim')})
-                                    .catch(e=>{
-                                        console.log(e)
-                                        res.redirect('/signup')
-                                    })
-                                    });
-                                }else{
-                                    console.log('mot de passe pas identique')
-                                    res.redirect('/signup')
-                                }
-                            }else{
-                                console.log('il ne contient pas de nombres, fait moins de 7 caracteres, pas de majuscule')
-                                res.redirect('/signup')
-                            }
-                        }
-                    }
-                )
-                .catch(e=>{
-                    console.log('e:', e)
-                })
-                res.redirect('/account')
-            }else{
-                console.log('format e-mail invalide')
-                res.redirect('/signup')
-            }
-
-            
-        })
-// LOGOUT
+    // Logout ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
         router.route('/logout')
-        .get((req, res) => {
-            if (req.session.user){
-                req.session.destroy(err => {
-                    if(err) {
-                        res.status(400).send('Unable to log out')
-                    } else {
-                        res.redirect('/signin')
-                    }
-                })
-            } else {
-                res.send("Vous n'êtes pas connecté")
-            }
-        })
-        // .delete((req, res) => {
-        //         if (req.session){
-        //             req.session.destroy(err => {
-        //                 if(err) {
-        //                     res.status(400).send('Unable to log out')
-        //                 } else {
-        //                     res.send('Logged out successfully')
-        //                 }
-        //             });
-        //         } else {
-        //             res.end()
-        //         }
-        //     })
+        .get((req, res) => { util_disconnect(req, res) })
+        
     return router
 })();

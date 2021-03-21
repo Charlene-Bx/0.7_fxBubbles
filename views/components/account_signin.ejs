@@ -1,18 +1,34 @@
 <section class="box__body" id="signin_form">
 
-  <form class="box__form" action="" method="post">
-
-    <label  class="box__form__box" for="userMail">
-      <span class="box__form__label">Your email:</span>
-      <input class="box__form__input" type="text" id="userMail" name='mail' required>
-      <span class="box__form__help">
-        The e-mail address with which you registered.
-      </span>
-    </label>
+  <form class="box__form" action='/signin' method="post" autocomplete="off">
+    
+    
+    <% if(error){%>
+      <label class="box__form__box --error" for="userMail">
+        <span class="box__form__label">Your email:</span>
+        <input class="box__form__input" type="text" id="userMail" name='mail' autocomplete="off" required>
+        <span class="box__form__help">
+          The e-mail address with which you registered.
+        </span>
+      
+        <span class="box__form__error">
+          <%= error %>
+        </span>
+      </label>
+    <% }else{ %>
+      <label class="box__form__box" for="userMail">
+        <span class="box__form__label">Your email:</span>
+        <input class="box__form__input" type="text" id="userMail" name='mail' autocomplete="off" required>
+        <span class="box__form__help">
+          The e-mail address with which you registered.
+        </span>
+      </label>
+      <% }%>
+    
 
     <label  class="box__form__box" for="userPassword">
       <span class="box__form__label">Your password:</span>
-      <input class="box__form__input" type="password" id="userPassword" name='password' required>
+      <input class="box__form__input" type="password" id="userPassword" name='password' autocomplete="off" required>
       <span class="box__form__help">
         For the moment, if you have forgotten your password, you will have to keep thinking ...
       </span>

@@ -16,7 +16,7 @@
         </header>
         <section id='info' class='info'>
         <!-- info slide -->
-        <article>
+        <article class="slide --small" id="info_slide">
             <div class="imposter">
                 <div class="imposter__item">
                     <h2>A place to learn professional makeup</h2>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <aside class="slide__show">
-                <div class="slide__items" style='background-image: url(./images/Chucky.jpg);'></div>
+                <div class="slide__items"></div>
                 <noscript>
                     <div class="slide__items" style='background-image: url(./images/Chucky.jpg);'></div>
                 </noscript>
@@ -39,10 +39,10 @@
                 <div class="sidebar__image"></div>
             </aside>
             <div class="sidebar__body">
-                <h2 class="sidebar__title">Le formateur:</h2>
+                <h2 class="sidebar__title">The mentor:</h2>
                 <div class="sidebar__content">
                     <p class="sidebar__text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, voluptate labore! Sequi nulla, doloremque blanditiis hic ad nam aliquam velit, fuga incidunt eum reiciendis distinctio vero amet totam, ipsam sed?
+                       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit consectetur architecto tempora suscipit sapiente distinctio, eius dolore neque, illum rerum quisquam eaque tempore aliquid molestias possimus reiciendis quaerat assumenda expedita? Eaque tempore aliquid molestias possimus hulipo.
                     </p>
                 </div>
             </div>
@@ -50,24 +50,65 @@
         <!-- end info formateur -->
 
         <!-- contact form -->
-        <form class="form">
-            <label for="myInput" class="form__label">Label:</label>
-            <input type="text" id="myInput" class="form__input">
-            <span class="form__help">
-              This is a help text. Could be a warning, too. For different colors you
-              should use modifier classes.
-            </span>
-        </form>
+        <article class="sidebar">
+
+            <div class="sidebar__body">
+                <h2 class="sidebar__title">Contact us:</h2>
+                <div class="sidebar__content">
+                    <p class="sidebar__text">
+                       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit consectetur architecto tempora suscipit sapiente distinctio, eius dolore neque, illum rerum quisquam eaque tempore aliquid molestias possimus reiciendis quaerat assumenda expedita? Eaque tempore aliquid molestias possimus hulipo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="sidebar__body" id="signin_form">
+
+                <form class="box__form" action='/signin' method="post" autocomplete="off">
+                  
+                    <label class="box__form__box --error" for="userMail">
+                        <span class="box__form__label">Your name:</span>
+                        <input class="box__form__input" type="text" id="userMail" name='mail' autocomplete="off">
+                    </label>
+
+                  <% if(error){%>
+                    <label class="box__form__box --error" for="userMail">
+                      <span class="box__form__label">Your email:</span>
+                      <input class="box__form__input" type="text" id="userMail" name='mail' autocomplete="off" required>
+                    
+                      <span class="box__form__error">
+                        <%= error %>
+                      </span>
+                    </label>
+                  <% }else{ %>
+                    <label class="box__form__box --error" for="userMail">
+                        <span class="box__form__label">Your email:</span>
+                        <input class="box__form__input" type="text" id="userMail" name='mail' autocomplete="off" required>  
+                    </label>
+                    <% }%>
+
+                    <label class="box__form__box" for="message">
+                        <span class="box__form__label">Your message:</span>
+                        <textarea class="box__form__input --textaera" type="text" id="message" name='message' required>Your message here!
+                        </textarea>
+                    </label>
+
+                  <button type="submit" class="button"> send it! </button>
+              
+                </form>
+              
+            </div>
+        </article>
+
         <!-- end contact form -->
 
         <!-- info localisation map -->
-        <article class="sidebar --reverse">
+        <article class="sidebar">
             <aside class="sidebar__map">
-                <div id='map' style='width: 400px; height: 300px;'></div>
+                <div id='map' style='width: 600px; height: 300px;'></div>
             </aside>
             <div class="sidebar__body">
-                <h2>Nous trouvez:</h2>
-                <address>
+                <h2 class="sidebar__title">Nous trouvez:</h2>
+                <address class="sidebar__content">
                     Les Glaciéres de Saint-Gilles
                     <br>18, rue de la Glaciére
                     <br>1060 Bruxelles
@@ -87,7 +128,7 @@
     <%- include('../partials/script.ejs') %>
     <!-- fin scripts -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <script src="./asset/js/mapbox.js"></script>
+    <script src="./js/mapbox.js"></script>
     <script src="./js/slides.js"></script>
 </body>
 </html>

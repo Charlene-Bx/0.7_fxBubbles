@@ -49,24 +49,28 @@
             <a class='nav__links' href="/infos">infos</a>
         </li>
 
-
-        <li class="nav__items --dropdown">
-            <a class='nav__links' href="/account">account</a>
-            <ul class='nav__dropdown'>
-                <% if(user){ %>
+        <% if(user){ %>
+            <li class="nav__items --dropdown">
+                <a class='nav__links' href="/account">account</a>
+                <ul class='nav__dropdown'>
                     <li class='nav__dropdown__items'>
                         <a class='nav__dropdown__links' href="/logout">log out</a>
                     </li>
-                <% } else { %> 
-                    <li class='nav__dropdown__items'>
-                        <a class='nav__dropdown__links' href="/signin">sign in</a>
-                    </li>
+                </ul>
+            </li>
+        <% } else { %>
+            <li class="nav__items --dropdown">
+                <a class='nav__links' href="/signin">sign in</a>
+                <ul class='nav__dropdown'>
                     <li class='nav__dropdown__items'>
                         <a class='nav__dropdown__links' href="/signup">sign up</a>
                     </li>
-                <% } %>
-            </ul>
-        </li>
-
+                </ul>
+            </li> 
+        <% } %>
     </ul>
+<h1>
+</h1>
+    
+
 </nav> 

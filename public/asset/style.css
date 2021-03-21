@@ -42,6 +42,13 @@
   height: 70vh;
   position: relative;
 }
+.slide.--small {
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .slide__show {
   width: inherit;
   height: inherit;
@@ -266,6 +273,52 @@
   align-items: initial;
   justify-content: initial;
 }
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: initial;
+  justify-content: center;
+  width: 100%;
+  height: max-content;
+  margin: 150px 0px 0px;
+}
+.sidebar.--reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: initial;
+  justify-content: center;
+}
+.sidebar__aside {
+  width: 40%;
+  height: 35vh;
+}
+.sidebar__image {
+  background-image: url("./images/mike2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: initial;
+  -webkit-background-image: url("./images/mike2.jpg");
+  -webkit-background-size: cover;
+  -webkit-background-repeat: no-repeat;
+  -webkit-background-position-x: center;
+  -webkit-background-position-y: initial;
+  width: 100%;
+  height: 100%;
+}
+.sidebar__body {
+  width: 60%;
+  padding-left: 50px;
+}
+.sidebar__title {
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: #cb6f5a;
+}
+.sidebar__content {
+  padding: 0 10rem 0 2rem;
+}
+
 .box {
   display: flex;
   flex-direction: row;
@@ -315,12 +368,25 @@
   align-items: initial;
   justify-content: initial;
 }
+.box__form__box.--error .box__form__label {
+  background-color: #913e2b;
+  width: max-content;
+  padding: 0.5rem 1rem;
+}
+.box__form__box.--error .box__form__input {
+  border: 5px solid #913e2b;
+}
+.box__form__box.--error .box__form__error {
+  color: #913e2b;
+  font-size: 1.2rem;
+}
 .box__form__label {
   background-color: #211B26;
   width: max-content;
   padding: 0.5rem 1rem;
   position: absolute;
   top: -20px;
+  z-index: 1;
 }
 .box__form__input {
   -webkit-box-shadow: inset 1px 0px 46px 20px rgba(169, 144, 134, 0.94), inset 1px 7px 17px 4px #A99086;
@@ -331,6 +397,10 @@
   padding: 0 2rem;
   height: 5.3rem;
   box-sizing: border-box;
+}
+.box__form__input.--textaera {
+  height: 15rem;
+  padding: 2rem;
 }
 .box__form__help {
   background-color: rgba(20, 61, 115, 0.3);
